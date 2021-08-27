@@ -170,7 +170,7 @@ namespace OpenCirnix.Lite
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cirnix.Lite";
+            this.Text = "OpenCirnix.Lite";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_delay)).EndInit();
