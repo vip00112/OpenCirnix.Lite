@@ -1,7 +1,7 @@
 # OpenCirnix.Lite
 This application is helpfull for play Warcraft 3.
 
-## Required
+## Origin
  - [OpenCirnix](https://github.com/BlacklightsC/OpenCirnix)
  - [CirnoLib](https://github.com/BlacklightsC/CirnoLib.git)
 
