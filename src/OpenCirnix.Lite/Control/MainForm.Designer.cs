@@ -66,7 +66,7 @@ namespace OpenCirnix.Lite
             0});
             this.numericUpDown_delay.Name = "numericUpDown_delay";
             this.numericUpDown_delay.Size = new System.Drawing.Size(100, 21);
-            this.numericUpDown_delay.TabIndex = 1;
+            this.numericUpDown_delay.TabIndex = 0;
             this.numericUpDown_delay.Value = new decimal(new int[] {
             50,
             0,
@@ -78,7 +78,7 @@ namespace OpenCirnix.Lite
             this.button_gameDelay.Location = new System.Drawing.Point(268, 39);
             this.button_gameDelay.Name = "button_gameDelay";
             this.button_gameDelay.Size = new System.Drawing.Size(100, 23);
-            this.button_gameDelay.TabIndex = 0;
+            this.button_gameDelay.TabIndex = 1;
             this.button_gameDelay.Text = "GameDelay";
             this.button_gameDelay.UseVisualStyleBackColor = true;
             this.button_gameDelay.Click += new System.EventHandler(this.button_gameDelay_Click);
@@ -88,7 +88,7 @@ namespace OpenCirnix.Lite
             this.button_autoRG.Location = new System.Drawing.Point(268, 68);
             this.button_autoRG.Name = "button_autoRG";
             this.button_autoRG.Size = new System.Drawing.Size(100, 23);
-            this.button_autoRG.TabIndex = 1;
+            this.button_autoRG.TabIndex = 2;
             this.button_autoRG.Text = "AutoRG";
             this.button_autoRG.UseVisualStyleBackColor = true;
             this.button_autoRG.Click += new System.EventHandler(this.button_autoRG_Click);
@@ -98,7 +98,7 @@ namespace OpenCirnix.Lite
             this.button_memory.Location = new System.Drawing.Point(268, 126);
             this.button_memory.Name = "button_memory";
             this.button_memory.Size = new System.Drawing.Size(100, 23);
-            this.button_memory.TabIndex = 3;
+            this.button_memory.TabIndex = 4;
             this.button_memory.Text = "Memory";
             this.button_memory.UseVisualStyleBackColor = true;
             this.button_memory.Click += new System.EventHandler(this.button_memory_Click);
@@ -108,7 +108,7 @@ namespace OpenCirnix.Lite
             this.button_speedStarter.Location = new System.Drawing.Point(268, 97);
             this.button_speedStarter.Name = "button_speedStarter";
             this.button_speedStarter.Size = new System.Drawing.Size(100, 23);
-            this.button_speedStarter.TabIndex = 2;
+            this.button_speedStarter.TabIndex = 3;
             this.button_speedStarter.Text = "SpeedStarter";
             this.button_speedStarter.UseVisualStyleBackColor = true;
             this.button_speedStarter.Click += new System.EventHandler(this.button_speedStarter_Click);

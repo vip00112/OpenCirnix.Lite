@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,10 +22,12 @@ namespace OpenCirnix.Lite
         private bool _waitLobby;
         private BackgroundWorker _bw;
 
+        #region Constructor
         public MainForm()
         {
             InitializeComponent();
         }
+        #endregion
 
         #region Control Event
         private void MainForm_Load(object sender, EventArgs e)
@@ -32,9 +37,12 @@ namespace OpenCirnix.Lite
             _bw.RunWorkerCompleted += bw_RunWorkerCompleted;
         }
 
-        private void MainForm_Shown(object sender, EventArgs e)
+        private async void MainForm_Shown(object sender, EventArgs e)
         {
             _bw.RunWorkerAsync();
+
+            var needUpdate = await CheckVersionAndUpdate();
+            if (needUpdate) Application.Exit();
         }
 
         private void button_gameDelay_Click(object sender, EventArgs e)
@@ -235,6 +243,46 @@ namespace OpenCirnix.Lite
         {
             ActionHandler.MemoryOptimize();
             WriteLog("Start memory optimize.");
+        }
+
+        public static async Task<bool> CheckVersionAndUpdate()
+        {
+            var task = Task.Run(() =>
+            {
+                System.Threading.Thread.Sleep(2000);
+                var currentVersion = Assembly.GetExecutingAssembly().GetName().Version;
+                var releaseVersion = GithubUtil.GetLatestVersion("vip00112", "OpenCirnix.Lite");
+                if (currentVersion >= releaseVersion) return null;
+
+                return GithubUtil.GetDownloadUrlForLatestAsset("vip00112", "OpenCirnix.Lite", "OpenCirnix.Lite*.zip");
+            });
+
+            var needUpdate = await task.ContinueWith((result) =>
+            {
+                string filePath = Path.Combine(Application.StartupPath, "GTAutoUpdate.exe");
+                if (!File.Exists(filePath)) return false;
+
+                string url = result.Result;
+                if (string.IsNullOrWhiteSpace(url)) return false;
+
+                int idx = url.LastIndexOf("/");
+                if (idx == -1) return false;
+
+                string fileName = url.Substring(idx + 1);
+                string savePath = Path.Combine(Application.StartupPath, fileName);
+
+                string msg = "Find new version.\r\nAre you download ner version ?";
+                var dr = MessageBox.Show(msg, "OpenCirnix.Lite", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dr != DialogResult.OK) return false;
+
+                var proc = new Process();
+                proc.StartInfo.FileName = filePath;
+                proc.StartInfo.Arguments = string.Format("\"{0}\" \"{1}\"", url, savePath);
+                proc.Start();
+                return true;
+            }, TaskScheduler.FromCurrentSynchronizationContext());
+
+            return needUpdate;
         }
         #endregion
     }
