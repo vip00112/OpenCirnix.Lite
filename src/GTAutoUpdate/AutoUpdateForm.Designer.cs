@@ -38,16 +38,16 @@ namespace GTAutoUpdate
             this.button_cancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // progressBar1
+            // progressBar
             // 
             this.progressBar.Location = new System.Drawing.Point(12, 35);
-            this.progressBar.Name = "progressBar1";
+            this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(476, 23);
             this.progressBar.TabIndex = 0;
             // 
             // label_per
             // 
-            this.label_per.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (129)));
+            this.label_per.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label_per.Location = new System.Drawing.Point(440, 61);
             this.label_per.Name = "label_per";
             this.label_per.Size = new System.Drawing.Size(50, 23);
@@ -57,7 +57,7 @@ namespace GTAutoUpdate
             // 
             // label_title
             // 
-            this.label_title.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (129)));
+            this.label_title.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label_title.Location = new System.Drawing.Point(12, 9);
             this.label_title.Name = "label_title";
             this.label_title.Size = new System.Drawing.Size(476, 23);
@@ -67,7 +67,7 @@ namespace GTAutoUpdate
             // 
             // label_bytes
             // 
-            this.label_bytes.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (129)));
+            this.label_bytes.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label_bytes.Location = new System.Drawing.Point(12, 61);
             this.label_bytes.Name = "label_bytes";
             this.label_bytes.Size = new System.Drawing.Size(422, 23);
@@ -111,7 +111,7 @@ namespace GTAutoUpdate
             this.Controls.Add(this.label_per);
             this.Controls.Add(this.progressBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AutoUpdateForm";
