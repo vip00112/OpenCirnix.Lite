@@ -215,6 +215,8 @@ namespace OpenCirnix.Lite
             else
             {
                 richTextBox_log.AppendText(log + "\r\n");
+                richTextBox_log.SelectionStart = richTextBox_log.Text.Length;
+                richTextBox_log.ScrollToCaret();
             }
         }
 
