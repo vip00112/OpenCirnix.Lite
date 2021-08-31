@@ -35,6 +35,16 @@ namespace OpenCirnix.Lite
             _bw = new BackgroundWorker();
             _bw.DoWork += bw_DoWork;
             _bw.RunWorkerCompleted += bw_RunWorkerCompleted;
+
+            // 업데이트 tmp 파일 삭제
+            var di = new DirectoryInfo(Application.StartupPath);
+            var fis = di.GetFiles("*.update.tmp");
+            foreach (var fi in fis)
+            {
+                string filePath = fi.FullName.Replace(".update.tmp", "");
+                fi.CopyTo(filePath, true);
+                fi.Delete();
+            }
         }
 
         private async void MainForm_Shown(object sender, EventArgs e)
