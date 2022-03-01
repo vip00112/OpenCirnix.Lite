@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static OpenCirnix.Lite.MemoryEditor;
 using static OpenCirnix.Lite.WindowNative;
 
@@ -41,6 +42,27 @@ namespace OpenCirnix.Lite
         public MemState State;
         public MemProtect Protect;
         public MemType Type;
+    }
+
+    internal delegate IntPtr LowLevelKeyboardProc(int nCode, int wParam, ref KBDLLHOOKSTRUCT lParam);
+
+    [StructLayout(LayoutKind.Sequential)]
+    internal struct KBDLLHOOKSTRUCT
+    {
+        internal Keys VkCode;
+        internal int ScanCode;
+        internal KBDLLHOOKSTRUCTFlags Flags;
+        internal int Time;
+        internal IntPtr DwExtraInfo;
+    }
+
+    [Flags]
+    internal enum KBDLLHOOKSTRUCTFlags : int
+    {
+        LLKHF_EXTENDED = 0x01,
+        LLKHF_INJECTED = 0x10,
+        LLKHF_ALTDOWN = 0x20,
+        LLKHF_UP = 0x80,
     }
 
     [StructLayout(LayoutKind.Sequential)]
