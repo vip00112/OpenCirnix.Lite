@@ -40,6 +40,11 @@ namespace OpenCirnix.Lite
             if (mapped != null) _mappings.Remove(mapped);
         }
 
+        public static List<KeyMapping> GetMappings()
+        {
+            return _mappings.ToList();
+        }
+
         public static void StartHook()
         {
             KeyboardHooker.HookStart();
@@ -99,24 +104,70 @@ namespace OpenCirnix.Lite
 
     public class KeyMapping
     {
-        private Keys _press;
-        private Keys _mapping;
-
         public KeyMapping(Keys press, Keys mapping)
         {
-            _press = press;
-            _mapping = mapping;
+            Press = press;
+            Mapping = mapping;
         }
+
+        public Keys Press { get; set; }
+
+        public Keys Mapping { get; set; }
 
         public bool IsMapped(Keys press)
         {
-            return press == _press;
+            return press == Press;
         }
 
         public void Action()
         {
-            keybd_event((byte) _mapping, 0, 0, 0x21);
-            keybd_event((byte) _mapping, 0, 2, 0x21);
+            keybd_event((byte) Mapping, 0, 0, 0x21);
+            keybd_event((byte) Mapping, 0, 2, 0x21);
+        }
+
+        public static string GetKeyString(Keys key)
+        {
+            if (key >= Keys.D0 && key <= Keys.D9)
+            {
+                return key.ToString().Replace("D", "");
+            }
+
+            if (key >= Keys.NumPad0 && key <= Keys.NumPad9)
+            {
+                return key.ToString().Replace("NumPad", "N");
+            }
+
+            switch (key)
+            {
+                case 0: return "None";
+
+                case Keys.Oemtilde: return "`";
+                case Keys.OemMinus: return "-";
+                case Keys.Oemplus: return "=";
+                case Keys.Oem5: return "\\";
+                case Keys.OemOpenBrackets: return "[";
+                case Keys.Oem6: return "]";
+                case Keys.Oem1: return ";";
+                case Keys.Oem7: return "'";
+                case Keys.Oemcomma: return ",";
+                case Keys.OemPeriod: return ".";
+                case Keys.OemQuestion: return "/";
+
+                case Keys.Divide: return "N/";
+                case Keys.Multiply: return "N*";
+                case Keys.Subtract: return "N-";
+                case Keys.Add: return "N+";
+                case Keys.Decimal: return "N.";
+
+                case Keys.Left: return "←";
+                case Keys.Up: return "↑";
+                case Keys.Right: return "→";
+                case Keys.Down: return "↓";
+
+                case Keys.PageUp: return "PgUp";
+                case Keys.PageDown: return "PgDn";
+            }
+            return key.ToString();
         }
     }
 }

@@ -62,6 +62,7 @@
     <Compile Include="Action\Action.GameDelay.cs" />
     <Compile Include="Action\ActionHandler.cs" />
     <Compile Include="Global\GithubJsonContainer.cs" />
+    <Compile Include="Global\Setting.cs" />
     <Compile Include="Global\GithubUtil.cs" />
     <Compile Include="Global\Enums.cs" />
     <Compile Include="Global\ExtensionMethods.cs" />

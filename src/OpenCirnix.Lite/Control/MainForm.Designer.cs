@@ -249,7 +249,7 @@ namespace OpenCirnix.Lite
             this.textBox_press1.Location = new System.Drawing.Point(36, 17);
             this.textBox_press1.Name = "textBox_press1";
             this.textBox_press1.ReadOnly = true;
-            this.textBox_press1.Size = new System.Drawing.Size(25, 21);
+            this.textBox_press1.Size = new System.Drawing.Size(50, 21);
             this.textBox_press1.TabIndex = 6;
             this.textBox_press1.TabStop = false;
             this.textBox_press1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -258,11 +258,11 @@ namespace OpenCirnix.Lite
             // textBox_mapping1
             // 
             this.textBox_mapping1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_mapping1.Location = new System.Drawing.Point(90, 17);
+            this.textBox_mapping1.Location = new System.Drawing.Point(115, 17);
             this.textBox_mapping1.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.textBox_mapping1.Name = "textBox_mapping1";
             this.textBox_mapping1.ReadOnly = true;
-            this.textBox_mapping1.Size = new System.Drawing.Size(25, 21);
+            this.textBox_mapping1.Size = new System.Drawing.Size(50, 21);
             this.textBox_mapping1.TabIndex = 6;
             this.textBox_mapping1.TabStop = false;
             this.textBox_mapping1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -271,7 +271,7 @@ namespace OpenCirnix.Lite
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label9.Location = new System.Drawing.Point(65, 17);
+            this.label9.Location = new System.Drawing.Point(90, 17);
             this.label9.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(21, 21);
@@ -295,7 +295,7 @@ namespace OpenCirnix.Lite
             this.textBox_press2.Location = new System.Drawing.Point(36, 44);
             this.textBox_press2.Name = "textBox_press2";
             this.textBox_press2.ReadOnly = true;
-            this.textBox_press2.Size = new System.Drawing.Size(25, 21);
+            this.textBox_press2.Size = new System.Drawing.Size(50, 21);
             this.textBox_press2.TabIndex = 6;
             this.textBox_press2.TabStop = false;
             this.textBox_press2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -304,11 +304,11 @@ namespace OpenCirnix.Lite
             // textBox_mapping2
             // 
             this.textBox_mapping2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_mapping2.Location = new System.Drawing.Point(90, 44);
+            this.textBox_mapping2.Location = new System.Drawing.Point(115, 44);
             this.textBox_mapping2.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.textBox_mapping2.Name = "textBox_mapping2";
             this.textBox_mapping2.ReadOnly = true;
-            this.textBox_mapping2.Size = new System.Drawing.Size(25, 21);
+            this.textBox_mapping2.Size = new System.Drawing.Size(50, 21);
             this.textBox_mapping2.TabIndex = 6;
             this.textBox_mapping2.TabStop = false;
             this.textBox_mapping2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -317,7 +317,7 @@ namespace OpenCirnix.Lite
             // label10
             // 
             this.label10.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label10.Location = new System.Drawing.Point(65, 44);
+            this.label10.Location = new System.Drawing.Point(90, 44);
             this.label10.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(21, 21);
@@ -341,7 +341,7 @@ namespace OpenCirnix.Lite
             this.textBox_press3.Location = new System.Drawing.Point(36, 71);
             this.textBox_press3.Name = "textBox_press3";
             this.textBox_press3.ReadOnly = true;
-            this.textBox_press3.Size = new System.Drawing.Size(25, 21);
+            this.textBox_press3.Size = new System.Drawing.Size(50, 21);
             this.textBox_press3.TabIndex = 6;
             this.textBox_press3.TabStop = false;
             this.textBox_press3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -350,11 +350,11 @@ namespace OpenCirnix.Lite
             // textBox_mapping3
             // 
             this.textBox_mapping3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_mapping3.Location = new System.Drawing.Point(90, 71);
+            this.textBox_mapping3.Location = new System.Drawing.Point(115, 71);
             this.textBox_mapping3.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.textBox_mapping3.Name = "textBox_mapping3";
             this.textBox_mapping3.ReadOnly = true;
-            this.textBox_mapping3.Size = new System.Drawing.Size(25, 21);
+            this.textBox_mapping3.Size = new System.Drawing.Size(50, 21);
             this.textBox_mapping3.TabIndex = 6;
             this.textBox_mapping3.TabStop = false;
             this.textBox_mapping3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -363,7 +363,7 @@ namespace OpenCirnix.Lite
             // label12
             // 
             this.label12.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label12.Location = new System.Drawing.Point(65, 71);
+            this.label12.Location = new System.Drawing.Point(90, 71);
             this.label12.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(21, 21);
@@ -387,7 +387,7 @@ namespace OpenCirnix.Lite
             this.textBox_press4.Location = new System.Drawing.Point(36, 98);
             this.textBox_press4.Name = "textBox_press4";
             this.textBox_press4.ReadOnly = true;
-            this.textBox_press4.Size = new System.Drawing.Size(25, 21);
+            this.textBox_press4.Size = new System.Drawing.Size(50, 21);
             this.textBox_press4.TabIndex = 6;
             this.textBox_press4.TabStop = false;
             this.textBox_press4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -396,11 +396,11 @@ namespace OpenCirnix.Lite
             // textBox_mapping4
             // 
             this.textBox_mapping4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_mapping4.Location = new System.Drawing.Point(90, 98);
+            this.textBox_mapping4.Location = new System.Drawing.Point(115, 98);
             this.textBox_mapping4.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.textBox_mapping4.Name = "textBox_mapping4";
             this.textBox_mapping4.ReadOnly = true;
-            this.textBox_mapping4.Size = new System.Drawing.Size(25, 21);
+            this.textBox_mapping4.Size = new System.Drawing.Size(50, 21);
             this.textBox_mapping4.TabIndex = 6;
             this.textBox_mapping4.TabStop = false;
             this.textBox_mapping4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -409,7 +409,7 @@ namespace OpenCirnix.Lite
             // label15
             // 
             this.label15.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label15.Location = new System.Drawing.Point(65, 98);
+            this.label15.Location = new System.Drawing.Point(90, 98);
             this.label15.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(21, 21);
@@ -433,7 +433,7 @@ namespace OpenCirnix.Lite
             this.textBox_press5.Location = new System.Drawing.Point(36, 125);
             this.textBox_press5.Name = "textBox_press5";
             this.textBox_press5.ReadOnly = true;
-            this.textBox_press5.Size = new System.Drawing.Size(25, 21);
+            this.textBox_press5.Size = new System.Drawing.Size(50, 21);
             this.textBox_press5.TabIndex = 6;
             this.textBox_press5.TabStop = false;
             this.textBox_press5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -442,11 +442,11 @@ namespace OpenCirnix.Lite
             // textBox_mapping5
             // 
             this.textBox_mapping5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_mapping5.Location = new System.Drawing.Point(90, 125);
+            this.textBox_mapping5.Location = new System.Drawing.Point(115, 125);
             this.textBox_mapping5.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.textBox_mapping5.Name = "textBox_mapping5";
             this.textBox_mapping5.ReadOnly = true;
-            this.textBox_mapping5.Size = new System.Drawing.Size(25, 21);
+            this.textBox_mapping5.Size = new System.Drawing.Size(50, 21);
             this.textBox_mapping5.TabIndex = 6;
             this.textBox_mapping5.TabStop = false;
             this.textBox_mapping5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -455,7 +455,7 @@ namespace OpenCirnix.Lite
             // label17
             // 
             this.label17.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label17.Location = new System.Drawing.Point(65, 125);
+            this.label17.Location = new System.Drawing.Point(90, 125);
             this.label17.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(21, 21);
@@ -476,10 +476,10 @@ namespace OpenCirnix.Lite
             // textBox_press6
             // 
             this.textBox_press6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_press6.Location = new System.Drawing.Point(159, 17);
+            this.textBox_press6.Location = new System.Drawing.Point(221, 17);
             this.textBox_press6.Name = "textBox_press6";
             this.textBox_press6.ReadOnly = true;
-            this.textBox_press6.Size = new System.Drawing.Size(25, 21);
+            this.textBox_press6.Size = new System.Drawing.Size(50, 21);
             this.textBox_press6.TabIndex = 6;
             this.textBox_press6.TabStop = false;
             this.textBox_press6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -488,10 +488,10 @@ namespace OpenCirnix.Lite
             // textBox_mapping6
             // 
             this.textBox_mapping6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_mapping6.Location = new System.Drawing.Point(213, 17);
+            this.textBox_mapping6.Location = new System.Drawing.Point(300, 17);
             this.textBox_mapping6.Name = "textBox_mapping6";
             this.textBox_mapping6.ReadOnly = true;
-            this.textBox_mapping6.Size = new System.Drawing.Size(25, 21);
+            this.textBox_mapping6.Size = new System.Drawing.Size(50, 21);
             this.textBox_mapping6.TabIndex = 6;
             this.textBox_mapping6.TabStop = false;
             this.textBox_mapping6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -500,7 +500,7 @@ namespace OpenCirnix.Lite
             // label19
             // 
             this.label19.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label19.Location = new System.Drawing.Point(188, 17);
+            this.label19.Location = new System.Drawing.Point(275, 17);
             this.label19.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(21, 21);
@@ -510,7 +510,7 @@ namespace OpenCirnix.Lite
             // 
             // label20
             // 
-            this.label20.Location = new System.Drawing.Point(132, 17);
+            this.label20.Location = new System.Drawing.Point(194, 17);
             this.label20.Margin = new System.Windows.Forms.Padding(10, 0, 3, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(21, 21);
@@ -521,10 +521,10 @@ namespace OpenCirnix.Lite
             // textBox_press7
             // 
             this.textBox_press7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_press7.Location = new System.Drawing.Point(159, 44);
+            this.textBox_press7.Location = new System.Drawing.Point(221, 44);
             this.textBox_press7.Name = "textBox_press7";
             this.textBox_press7.ReadOnly = true;
-            this.textBox_press7.Size = new System.Drawing.Size(25, 21);
+            this.textBox_press7.Size = new System.Drawing.Size(50, 21);
             this.textBox_press7.TabIndex = 6;
             this.textBox_press7.TabStop = false;
             this.textBox_press7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -533,10 +533,10 @@ namespace OpenCirnix.Lite
             // textBox_mapping7
             // 
             this.textBox_mapping7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_mapping7.Location = new System.Drawing.Point(213, 44);
+            this.textBox_mapping7.Location = new System.Drawing.Point(300, 44);
             this.textBox_mapping7.Name = "textBox_mapping7";
             this.textBox_mapping7.ReadOnly = true;
-            this.textBox_mapping7.Size = new System.Drawing.Size(25, 21);
+            this.textBox_mapping7.Size = new System.Drawing.Size(50, 21);
             this.textBox_mapping7.TabIndex = 6;
             this.textBox_mapping7.TabStop = false;
             this.textBox_mapping7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -545,7 +545,7 @@ namespace OpenCirnix.Lite
             // label21
             // 
             this.label21.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label21.Location = new System.Drawing.Point(188, 44);
+            this.label21.Location = new System.Drawing.Point(275, 44);
             this.label21.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(21, 21);
@@ -555,7 +555,7 @@ namespace OpenCirnix.Lite
             // 
             // label22
             // 
-            this.label22.Location = new System.Drawing.Point(132, 44);
+            this.label22.Location = new System.Drawing.Point(194, 44);
             this.label22.Margin = new System.Windows.Forms.Padding(10, 0, 3, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(21, 21);
@@ -566,10 +566,10 @@ namespace OpenCirnix.Lite
             // textBox_press8
             // 
             this.textBox_press8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_press8.Location = new System.Drawing.Point(159, 71);
+            this.textBox_press8.Location = new System.Drawing.Point(221, 71);
             this.textBox_press8.Name = "textBox_press8";
             this.textBox_press8.ReadOnly = true;
-            this.textBox_press8.Size = new System.Drawing.Size(25, 21);
+            this.textBox_press8.Size = new System.Drawing.Size(50, 21);
             this.textBox_press8.TabIndex = 6;
             this.textBox_press8.TabStop = false;
             this.textBox_press8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -578,10 +578,10 @@ namespace OpenCirnix.Lite
             // textBox_mapping8
             // 
             this.textBox_mapping8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_mapping8.Location = new System.Drawing.Point(213, 71);
+            this.textBox_mapping8.Location = new System.Drawing.Point(300, 71);
             this.textBox_mapping8.Name = "textBox_mapping8";
             this.textBox_mapping8.ReadOnly = true;
-            this.textBox_mapping8.Size = new System.Drawing.Size(25, 21);
+            this.textBox_mapping8.Size = new System.Drawing.Size(50, 21);
             this.textBox_mapping8.TabIndex = 6;
             this.textBox_mapping8.TabStop = false;
             this.textBox_mapping8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -590,7 +590,7 @@ namespace OpenCirnix.Lite
             // label23
             // 
             this.label23.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label23.Location = new System.Drawing.Point(188, 71);
+            this.label23.Location = new System.Drawing.Point(275, 71);
             this.label23.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(21, 21);
@@ -600,7 +600,7 @@ namespace OpenCirnix.Lite
             // 
             // label24
             // 
-            this.label24.Location = new System.Drawing.Point(132, 71);
+            this.label24.Location = new System.Drawing.Point(194, 71);
             this.label24.Margin = new System.Windows.Forms.Padding(10, 0, 3, 0);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(21, 21);
@@ -611,10 +611,10 @@ namespace OpenCirnix.Lite
             // textBox_press9
             // 
             this.textBox_press9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_press9.Location = new System.Drawing.Point(159, 98);
+            this.textBox_press9.Location = new System.Drawing.Point(221, 98);
             this.textBox_press9.Name = "textBox_press9";
             this.textBox_press9.ReadOnly = true;
-            this.textBox_press9.Size = new System.Drawing.Size(25, 21);
+            this.textBox_press9.Size = new System.Drawing.Size(50, 21);
             this.textBox_press9.TabIndex = 6;
             this.textBox_press9.TabStop = false;
             this.textBox_press9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -623,10 +623,10 @@ namespace OpenCirnix.Lite
             // textBox_mapping9
             // 
             this.textBox_mapping9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_mapping9.Location = new System.Drawing.Point(213, 98);
+            this.textBox_mapping9.Location = new System.Drawing.Point(300, 98);
             this.textBox_mapping9.Name = "textBox_mapping9";
             this.textBox_mapping9.ReadOnly = true;
-            this.textBox_mapping9.Size = new System.Drawing.Size(25, 21);
+            this.textBox_mapping9.Size = new System.Drawing.Size(50, 21);
             this.textBox_mapping9.TabIndex = 6;
             this.textBox_mapping9.TabStop = false;
             this.textBox_mapping9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -635,7 +635,7 @@ namespace OpenCirnix.Lite
             // label25
             // 
             this.label25.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label25.Location = new System.Drawing.Point(188, 98);
+            this.label25.Location = new System.Drawing.Point(275, 98);
             this.label25.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(21, 21);
@@ -645,7 +645,7 @@ namespace OpenCirnix.Lite
             // 
             // label26
             // 
-            this.label26.Location = new System.Drawing.Point(132, 98);
+            this.label26.Location = new System.Drawing.Point(194, 98);
             this.label26.Margin = new System.Windows.Forms.Padding(10, 0, 3, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(21, 21);
@@ -656,10 +656,10 @@ namespace OpenCirnix.Lite
             // textBox_press10
             // 
             this.textBox_press10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_press10.Location = new System.Drawing.Point(159, 125);
+            this.textBox_press10.Location = new System.Drawing.Point(221, 125);
             this.textBox_press10.Name = "textBox_press10";
             this.textBox_press10.ReadOnly = true;
-            this.textBox_press10.Size = new System.Drawing.Size(25, 21);
+            this.textBox_press10.Size = new System.Drawing.Size(50, 21);
             this.textBox_press10.TabIndex = 6;
             this.textBox_press10.TabStop = false;
             this.textBox_press10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -668,10 +668,10 @@ namespace OpenCirnix.Lite
             // textBox_mapping10
             // 
             this.textBox_mapping10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_mapping10.Location = new System.Drawing.Point(213, 125);
+            this.textBox_mapping10.Location = new System.Drawing.Point(300, 125);
             this.textBox_mapping10.Name = "textBox_mapping10";
             this.textBox_mapping10.ReadOnly = true;
-            this.textBox_mapping10.Size = new System.Drawing.Size(25, 21);
+            this.textBox_mapping10.Size = new System.Drawing.Size(50, 21);
             this.textBox_mapping10.TabIndex = 6;
             this.textBox_mapping10.TabStop = false;
             this.textBox_mapping10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -680,7 +680,7 @@ namespace OpenCirnix.Lite
             // label27
             // 
             this.label27.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label27.Location = new System.Drawing.Point(188, 125);
+            this.label27.Location = new System.Drawing.Point(275, 125);
             this.label27.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(21, 21);
@@ -690,7 +690,7 @@ namespace OpenCirnix.Lite
             // 
             // label28
             // 
-            this.label28.Location = new System.Drawing.Point(132, 125);
+            this.label28.Location = new System.Drawing.Point(194, 125);
             this.label28.Margin = new System.Windows.Forms.Padding(10, 0, 3, 0);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(21, 21);
@@ -702,7 +702,7 @@ namespace OpenCirnix.Lite
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label29.Location = new System.Drawing.Point(376, 165);
+            this.label29.Location = new System.Drawing.Point(376, 197);
             this.label29.Margin = new System.Windows.Forms.Padding(5);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(49, 12);
@@ -711,7 +711,7 @@ namespace OpenCirnix.Lite
             // 
             // label30
             // 
-            this.label30.Location = new System.Drawing.Point(376, 187);
+            this.label30.Location = new System.Drawing.Point(376, 219);
             this.label30.Margin = new System.Windows.Forms.Padding(5);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(207, 124);
@@ -762,16 +762,16 @@ namespace OpenCirnix.Lite
             this.groupBox_mapping.Controls.Add(this.textBox_mapping10);
             this.groupBox_mapping.Controls.Add(this.label9);
             this.groupBox_mapping.Enabled = false;
-            this.groupBox_mapping.Location = new System.Drawing.Point(12, 155);
+            this.groupBox_mapping.Location = new System.Drawing.Point(12, 187);
             this.groupBox_mapping.Name = "groupBox_mapping";
-            this.groupBox_mapping.Size = new System.Drawing.Size(250, 156);
+            this.groupBox_mapping.Size = new System.Drawing.Size(356, 156);
             this.groupBox_mapping.TabIndex = 0;
             this.groupBox_mapping.TabStop = false;
             this.groupBox_mapping.Text = "키 맵핑";
             // 
             // button_mappingSetting
             // 
-            this.button_mappingSetting.Location = new System.Drawing.Point(268, 160);
+            this.button_mappingSetting.Location = new System.Drawing.Point(12, 155);
             this.button_mappingSetting.Name = "button_mappingSetting";
             this.button_mappingSetting.Size = new System.Drawing.Size(100, 23);
             this.button_mappingSetting.TabIndex = 5;
@@ -782,7 +782,7 @@ namespace OpenCirnix.Lite
             // button_mappingSave
             // 
             this.button_mappingSave.Enabled = false;
-            this.button_mappingSave.Location = new System.Drawing.Point(268, 189);
+            this.button_mappingSave.Location = new System.Drawing.Point(118, 155);
             this.button_mappingSave.Name = "button_mappingSave";
             this.button_mappingSave.Size = new System.Drawing.Size(100, 23);
             this.button_mappingSave.TabIndex = 6;
@@ -794,7 +794,7 @@ namespace OpenCirnix.Lite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 318);
+            this.ClientSize = new System.Drawing.Size(572, 349);
             this.Controls.Add(this.groupBox_mapping);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label4);
