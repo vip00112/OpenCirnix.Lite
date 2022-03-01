@@ -54,6 +54,18 @@ namespace OpenCirnix.Lite
         [DllImport("user32")]
         internal static extern bool UnregisterHotKey(IntPtr hWnd, int id);
 
+        [DllImport("user32")]
+        internal static extern IntPtr CallNextHookEx(IntPtr hhk, int nCode, int wParam, ref KBDLLHOOKSTRUCT lParam);
+
+        [DllImport("user32", SetLastError = true)]
+        internal static extern IntPtr SetWindowsHookEx(int hookID, LowLevelKeyboardProc lpfn, IntPtr hMod, uint dwThreadId);
+
+        [DllImport("user32", SetLastError = true)]
+        internal static extern bool UnhookWindowsHookEx(IntPtr hhk);
+
+        [DllImport("kernel32", CharSet = CharSet.Auto, SetLastError = true)]
+        internal static extern IntPtr GetModuleHandle(string lpModuleName);
+
         [DllImport("kernel32", CharSet = CharSet.Auto)]
         public static extern int GetLastError();
 

@@ -15,3 +15,4 @@ This application is helpfull for play Warcraft 3.
  - Apply auto rg.
  - Apply speed starter.
  - Memory optimize.
+ - Key mapping.

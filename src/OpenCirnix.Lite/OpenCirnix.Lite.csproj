@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action\Action.KeyMapping.cs" />
     <Compile Include="Action\Action.AutoRG.cs" />
     <Compile Include="Action\Action.StartDelay.cs" />
     <Compile Include="Action\Action.GameDelay.cs" />

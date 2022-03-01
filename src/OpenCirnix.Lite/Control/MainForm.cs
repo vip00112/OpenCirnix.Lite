@@ -53,6 +53,12 @@ namespace OpenCirnix.Lite
 
             var needUpdate = await CheckVersionAndUpdate();
             if (needUpdate) Application.Exit();
+            else ActionHandler.StartKeyMapping();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ActionHandler.StopKeyMapping();
         }
 
         private void button_gameDelay_Click(object sender, EventArgs e)
@@ -74,6 +80,107 @@ namespace OpenCirnix.Lite
         private void button_memory_Click(object sender, EventArgs e)
         {
             StartMemoryOptimize();
+        }
+
+        private void button_mappingSetting_Click(object sender, EventArgs e)
+        {
+            groupBox_mapping.Enabled = true;
+            KeyMappingAction.IsModifyMode = true;
+            button_mappingSave.Enabled = true;
+            button_mappingSetting.Enabled = false;
+        }
+
+        private void button_mappingSave_Click(object sender, EventArgs e)
+        {
+            groupBox_mapping.Enabled = false;
+            KeyMappingAction.IsModifyMode = false;
+            button_mappingSave.Enabled = false;
+            button_mappingSetting.Enabled = true;
+        }
+
+        private void textBox_press_KeyDown(object sender, KeyEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            if (textBox == null) return;
+
+            if (!ValidateKey(e.KeyCode)) return;
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                if (textBox.Tag != null)
+                {
+                    var press = (Keys) textBox.Tag;
+                    RemoveKeyMapping(press);
+
+                    textBox.Text = null;
+                    textBox.Tag = null;
+                }
+
+                var mappingControl = Controls.Find(textBox.Name.Replace("press", "mapping"), true)
+                                             .OfType<TextBox>()
+                                             .FirstOrDefault();
+                if (mappingControl != null)
+                {
+                    mappingControl.Text = null;
+                    mappingControl.Tag = null;
+                }
+                return;
+            }
+
+            if (KeyMappingAction.HasMapping(e.KeyCode))
+            {
+                string msg = "이미 지정된 키 맵핑 입니다.";
+                MessageBox.Show(msg, "OpenCirnix.Lite", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (textBox.Tag != null)
+            {
+                var press = (Keys) textBox.Tag;
+                RemoveKeyMapping(press);
+            }
+
+            textBox.Tag = e.KeyCode;
+            textBox.Text = e.KeyCode.ToString();
+        }
+
+        private void textBox_mapping_KeyDown(object sender, KeyEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            if (textBox == null) return;
+
+            if (!ValidateKey(e.KeyCode)) return;
+
+            var pressControl = Controls.Find(textBox.Name.Replace("mapping", "press"), true)
+                                       .OfType<TextBox>()
+                                       .FirstOrDefault();
+            if (e.KeyCode == Keys.Escape)
+            {
+                textBox.Text = null;
+                textBox.Tag = null;
+
+                if (pressControl != null)
+                {
+                    if (pressControl.Tag != null)
+                    {
+                        var press = (Keys) pressControl.Tag;
+                        RemoveKeyMapping(press);
+                    }
+
+                    pressControl.Text = null;
+                    pressControl.Tag = null;
+                }
+                return;
+            }
+
+            textBox.Tag = e.KeyCode;
+            textBox.Text = e.KeyCode.ToString();
+
+            if (pressControl != null && pressControl.Tag != null)
+            {
+                var press = (Keys) pressControl.Tag;
+                AddKeyMapping(press, e.KeyCode);
+            }
         }
         #endregion
 
@@ -99,7 +206,7 @@ namespace OpenCirnix.Lite
         {
             await Task.Delay(200);
             _bw.RunWorkerAsync();
-        }   
+        }
 
         private async Task<bool> ProcessCheck()
         {
@@ -114,18 +221,18 @@ namespace OpenCirnix.Lite
 
             if (!_initializedWarcraft)
             {
-                WriteLog("Found warcraft 3 process.");
+                WriteLog("실행중인 워크래프트 3 발견.");
                 _initializedWarcraft = true;
                 await Task.Delay(2000);
 
                 Warcraft3Info.Refresh();
                 GameModule.GetOffset();
 
-                ChatAction.SendMsg(true, " * Start cirnix lite. * ");
+                ChatAction.SendMsg(true, " * 치르닉스 라이트 시작. * ");
                 await Task.Delay(500);
 
                 ActionHandler.SetStartSpeed();
-                WriteLog("Apply speed starter.");
+                WriteLog("[ 빠른 게임시작 ] 적용.");
             }
 
             StatusCheck();
@@ -234,27 +341,51 @@ namespace OpenCirnix.Lite
         {
             if (ActionHandler.SetGameDelay(delay))
             {
-                WriteLog($"Apply game delay : {delay}ms.");
+                WriteLog($"[ 게임 딜레이 ] 적용 {delay} ms.");
             }
         }
 
         private void ToggleAutoRG()
         {
             var result = ActionHandler.ToggleAutoRG();
-            if (result) WriteLog("Apply auto rg.");
-            else WriteLog("Free auto rg.");
+            if (result) WriteLog("[ 자동 새로고침 ] 적용.");
+            else WriteLog("[ 자동 새로고침 ] 해제.");
         }
 
         private void SetSpeedStarter()
         {
             ActionHandler.SetStartSpeed();
-            WriteLog("Apply speed starter.");
+            WriteLog("[ 빠른 게임시작 ] 적용.");
         }
 
         private void StartMemoryOptimize()
         {
             ActionHandler.MemoryOptimize();
-            WriteLog("Start memory optimize.");
+            WriteLog("[ 메모리 정리 ] 시작.");
+        }
+
+        private bool ValidateKey(Keys key)
+        {
+            var keyName = key.ToString().ToLower();
+            var ignores = new string[] { "capital", "shift", "control", "alt", "menu", "mode" };
+            foreach (var ignore in ignores)
+            {
+                if (keyName.Contains(ignore)) return false;
+            }
+
+            return true;
+        }
+
+        private void AddKeyMapping(Keys press, Keys mapping)
+        {
+            KeyMappingAction.AddMapping(press, mapping);
+            WriteLog($"[ 키 맵핑 ] 적용 : {press} → {mapping}.");
+        }
+
+        private void RemoveKeyMapping(Keys press)
+        {
+            KeyMappingAction.RemoveMapping(press);
+            WriteLog($"[ 키 맵핑 ] 해제 : {press}.");
         }
 
         public static async Task<bool> CheckVersionAndUpdate()
