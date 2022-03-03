@@ -141,6 +141,7 @@ namespace OpenCirnix.Lite
             {
                 case 0: return "None";
 
+                case Keys.Capital: return "CL";
                 case Keys.Oemtilde: return "`";
                 case Keys.OemMinus: return "-";
                 case Keys.Oemplus: return "=";

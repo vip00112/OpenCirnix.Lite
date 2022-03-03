@@ -66,6 +66,9 @@
     <Compile Include="Global\GithubUtil.cs" />
     <Compile Include="Global\Enums.cs" />
     <Compile Include="Global\ExtensionMethods.cs" />
+    <Compile Include="TabDisableTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Warcraft\GameModule.cs" />
     <Compile Include="Global\HangWatchdog.cs" />
     <Compile Include="Control\MainForm.cs">
