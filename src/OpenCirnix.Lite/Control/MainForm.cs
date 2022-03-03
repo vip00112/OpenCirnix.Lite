@@ -402,7 +402,7 @@ namespace OpenCirnix.Lite
         private bool ValidateKey(Keys key)
         {
             var keyName = key.ToString().ToLower();
-            var ignores = new string[] { "capital", "shift", "control", "alt", "menu", "mode", "apps" };
+            var ignores = new string[] { "shift", "control", "alt", "menu", "mode", "apps" };
             foreach (var ignore in ignores)
             {
                 if (keyName.Contains(ignore)) return false;
