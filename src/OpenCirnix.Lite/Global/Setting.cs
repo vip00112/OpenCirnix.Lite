@@ -18,6 +18,8 @@ namespace OpenCirnix.Lite
             KeyMappings = new List<KeyMapping>();
         }
 
+        public bool IsUseKeyMapping { get; set; } = true;
+
         public List<KeyMapping> KeyMappings { get; set; }
 
         public static void Save(Setting setting)
