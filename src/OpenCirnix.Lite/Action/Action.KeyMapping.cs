@@ -14,6 +14,7 @@ namespace OpenCirnix.Lite
     public static class KeyMappingAction
     {
         public static bool IsModifyMode;
+        public static bool IsHooking;
 
         private static List<KeyMapping> _mappings;
 
@@ -34,10 +35,13 @@ namespace OpenCirnix.Lite
             _mappings.Add(new KeyMapping(press, mapping));
         }
 
-        public static void RemoveMapping(Keys press)
+        public static bool RemoveMapping(Keys press)
         {
             var mapped = _mappings.FirstOrDefault(o => o.IsMapped(press));
-            if (mapped != null) _mappings.Remove(mapped);
+            if (mapped == null) return false;
+
+            _mappings.Remove(mapped);
+            return true;
         }
 
         public static List<KeyMapping> GetMappings()
@@ -47,12 +51,18 @@ namespace OpenCirnix.Lite
 
         public static void StartHook()
         {
+            if (IsHooking) return;
+
             KeyboardHooker.HookStart();
+            IsHooking = true;
         }
 
         public static void EndHook()
         {
+            if (!IsHooking) return;
+
             KeyboardHooker.HookEnd();
+            IsHooking = false;
         }
 
         #region Inner Class

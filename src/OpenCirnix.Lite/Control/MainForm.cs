@@ -45,51 +45,30 @@ namespace OpenCirnix.Lite
                 fi.CopyTo(filePath, true);
                 fi.Delete();
             }
-
-            // 세이브 파일 로드
-            var setting = Setting.Load();
-            if (setting != null)
-            {
-                int idx = 1;
-                foreach (var mapping in setting.KeyMappings)
-                {
-                    string pressName = $"textBox_press{idx}";
-                    var pressControl = Controls.Find(pressName, true).OfType<TextBox>().FirstOrDefault();
-                    if (pressControl == null) continue;
-
-                    string mappingName = $"textBox_mapping{idx}";
-                    var mappingControl = Controls.Find(mappingName, true).OfType<TextBox>().FirstOrDefault();
-                    if (mappingControl == null) continue;
-
-                    pressControl.Tag = mapping.Press;
-                    pressControl.Text = KeyMapping.GetKeyString(mapping.Press);
-                    mappingControl.Tag = mapping.Mapping;
-                    mappingControl.Text = KeyMapping.GetKeyString(mapping.Mapping);
-                    AddKeyMapping(mapping.Press, mapping.Mapping);
-
-                    idx++;
-                }
-            }
         }
 
         private async void MainForm_Shown(object sender, EventArgs e)
         {
+            // 설정 로드
+            LoadSetting();
+
+            // 워크 감지 시작
             _bw.RunWorkerAsync();
 
             var needUpdate = await CheckVersionAndUpdate();
-            if (needUpdate) Application.Exit();
-            else ActionHandler.StartKeyMapping();
+            if (needUpdate)
+            {
+                Application.Exit();
+                return;
+            }
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             ActionHandler.StopKeyMapping();
 
-            var setting = new Setting()
-            {
-                KeyMappings = KeyMappingAction.GetMappings(),
-            };
-            Setting.Save(setting);
+            // 설정 저장
+            SaveSetting();
         }
 
         private void button_gameDelay_Click(object sender, EventArgs e)
@@ -115,22 +94,45 @@ namespace OpenCirnix.Lite
 
         private void button_mappingSetting_Click(object sender, EventArgs e)
         {
-            KeyMappingAction.IsModifyMode = true;
-            ActionHandler.StopKeyMapping();
+            string type = button_mappingSetting.Tag as string;
+            if (type == "EDITMODE")
+            {
+                button_mappingSetting.Tag = null;
+                button_mappingSetting.Text = "키 맵핑 편집";
 
-            groupBox_mapping.Enabled = true;
-            button_mappingSave.Enabled = true;
-            button_mappingSetting.Enabled = false;
+                KeyMappingAction.IsModifyMode = false;
+                ActionHandler.StartKeyMapping();
+                groupBox_mapping.Enabled = false;
+                checkBox_mapping.Enabled = true;
+            }
+            else
+            {
+                button_mappingSetting.Tag = "EDITMODE";
+                button_mappingSetting.Text = "키 맵핑 저장";
+
+                KeyMappingAction.IsModifyMode = true;
+                ActionHandler.StopKeyMapping();
+                groupBox_mapping.Enabled = true;
+                checkBox_mapping.Enabled = false;
+            }
         }
 
-        private void button_mappingSave_Click(object sender, EventArgs e)
+        private void checkBox_mapping_CheckedChanged(object sender, EventArgs e)
         {
-            KeyMappingAction.IsModifyMode = false;
-            ActionHandler.StartKeyMapping();
-
-            groupBox_mapping.Enabled = false;
-            button_mappingSave.Enabled = false;
-            button_mappingSetting.Enabled = true;
+            if (checkBox_mapping.Checked)
+            {
+                Height = 410;
+                button_mappingSetting.Enabled = true;
+                ActionHandler.StartKeyMapping();
+                WriteLog("[ 키 맵핑 후킹 ] 시작.");
+            }
+            else
+            {
+                Height = 225;
+                button_mappingSetting.Enabled = false;
+                ActionHandler.StopKeyMapping();
+                WriteLog("[ 키 맵핑 후킹 ] 종료.");
+            }
         }
 
         private void textBox_press_KeyDown(object sender, KeyEventArgs e)
@@ -140,25 +142,18 @@ namespace OpenCirnix.Lite
 
             if (!ValidateKey(e.KeyCode)) return;
 
+            string mappingControlName = textBox.Name.Replace("press", "mapping");
             if (e.KeyCode == Keys.Escape)
             {
                 if (textBox.Tag != null)
                 {
                     var press = (Keys) textBox.Tag;
                     RemoveKeyMapping(press);
-
-                    textBox.Text = null;
-                    textBox.Tag = null;
                 }
 
-                var mappingControl = Controls.Find(textBox.Name.Replace("press", "mapping"), true)
-                                             .OfType<TextBox>()
-                                             .FirstOrDefault();
-                if (mappingControl != null)
-                {
-                    mappingControl.Text = null;
-                    mappingControl.Tag = null;
-                }
+                textBox.Text = null;
+                textBox.Tag = null;
+                ClearKeyMapControl(mappingControlName);
                 return;
             }
 
@@ -177,6 +172,7 @@ namespace OpenCirnix.Lite
 
             textBox.Tag = e.KeyCode;
             textBox.Text = KeyMapping.GetKeyString(e.KeyCode);
+            ClearKeyMapControl(mappingControlName);
         }
 
         private void textBox_mapping_KeyDown(object sender, KeyEventArgs e)
@@ -186,31 +182,20 @@ namespace OpenCirnix.Lite
 
             if (!ValidateKey(e.KeyCode)) return;
 
-            var pressControl = Controls.Find(textBox.Name.Replace("mapping", "press"), true)
-                                       .OfType<TextBox>()
-                                       .FirstOrDefault();
+            string pressControlName = textBox.Name.Replace("mapping", "press");
             if (e.KeyCode == Keys.Escape)
             {
                 textBox.Text = null;
                 textBox.Tag = null;
 
-                if (pressControl != null)
-                {
-                    if (pressControl.Tag != null)
-                    {
-                        var press = (Keys) pressControl.Tag;
-                        RemoveKeyMapping(press);
-                    }
-
-                    pressControl.Text = null;
-                    pressControl.Tag = null;
-                }
+                ClearKeyMapControl(pressControlName);
                 return;
             }
 
             textBox.Tag = e.KeyCode;
             textBox.Text = KeyMapping.GetKeyString(e.KeyCode);
 
+            var pressControl = Controls.Find(pressControlName, true).OfType<TextBox>().FirstOrDefault();
             if (pressControl != null && pressControl.Tag != null)
             {
                 var press = (Keys) pressControl.Tag;
@@ -220,6 +205,50 @@ namespace OpenCirnix.Lite
         #endregion
 
         #region Private Method
+        private void LoadSetting()
+        {
+            var setting = Setting.Load();
+            if (setting != null)
+            {
+                int idx = 1;
+                foreach (var mapping in setting.KeyMappings)
+                {
+                    string pressName = $"textBox_press{idx}";
+                    var pressControl = Controls.Find(pressName, true).OfType<TextBox>().FirstOrDefault();
+                    if (pressControl == null) continue;
+
+                    string mappingName = $"textBox_mapping{idx}";
+                    var mappingControl = Controls.Find(mappingName, true).OfType<TextBox>().FirstOrDefault();
+                    if (mappingControl == null) continue;
+
+                    pressControl.Tag = mapping.Press;
+                    pressControl.Text = KeyMapping.GetKeyString(mapping.Press);
+                    mappingControl.Tag = mapping.Mapping;
+                    mappingControl.Text = KeyMapping.GetKeyString(mapping.Mapping);
+                    AddKeyMapping(mapping.Press, mapping.Mapping);
+
+                    idx++;
+                }
+
+                checkBox_mapping.Checked = setting.IsUseKeyMapping;
+                if (checkBox_mapping.Checked)
+                {
+                    ActionHandler.StartKeyMapping();
+                    WriteLog("[ 키 맵핑 후킹 ] 시작.");
+                }
+            }
+        }
+
+        private void SaveSetting()
+        {
+            var setting = new Setting()
+            {
+                IsUseKeyMapping = checkBox_mapping.Checked,
+                KeyMappings = KeyMappingAction.GetMappings(),
+            };
+            Setting.Save(setting);
+        }
+
         private async void bw_DoWork(object sender, DoWorkEventArgs e)
         {
             try
@@ -411,6 +440,21 @@ namespace OpenCirnix.Lite
             return true;
         }
 
+        private void ClearKeyMapControl(string name)
+        {
+            var control = Controls.Find(name, true).OfType<TextBox>().FirstOrDefault();
+            if (control == null) return;
+
+            if (name.Contains("press") && control.Tag != null)
+            {
+                var press = (Keys) control.Tag;
+                RemoveKeyMapping(press);
+            }
+
+            control.Text = null;
+            control.Tag = null;
+        }
+
         private void AddKeyMapping(Keys press, Keys mapping)
         {
             KeyMappingAction.AddMapping(press, mapping);
@@ -419,8 +463,10 @@ namespace OpenCirnix.Lite
 
         private void RemoveKeyMapping(Keys press)
         {
-            KeyMappingAction.RemoveMapping(press);
-            WriteLog($"[ 키 맵핑 ] 해제 : {KeyMapping.GetKeyString(press)}.");
+            if (KeyMappingAction.RemoveMapping(press))
+            {
+                WriteLog($"[ 키 맵핑 ] 해제 : {KeyMapping.GetKeyString(press)}.");
+            }
         }
 
         public static async Task<bool> CheckVersionAndUpdate()

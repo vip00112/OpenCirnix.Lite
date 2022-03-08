@@ -32,12 +32,12 @@ namespace OpenCirnix.Lite
         {
             if (AutoRGAction.IsRunning)
             {
-                ChatAction.SendMsg(true, $"[ 자동 새로고침 ] 적용.");
+                ChatAction.SendMsg(true, $"[ 자동 새로고침 ] 해제.");
                 AutoRGAction.CancelAsync();
                 return false;
             }
 
-            ChatAction.SendMsg(true, $"[ 자동 새로고침 ] 해제.");
+            ChatAction.SendMsg(true, $"[ 자동 새로고침 ] 적용.");
             AutoRGAction.RunWorkerAsync();
             return true;
         }

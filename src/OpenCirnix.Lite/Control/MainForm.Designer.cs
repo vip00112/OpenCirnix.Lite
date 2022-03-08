@@ -43,51 +43,52 @@ namespace OpenCirnix.Lite
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox_press1 = new TabDisableTextBox();
-            this.textBox_mapping1 = new TabDisableTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox_press2 = new TabDisableTextBox();
-            this.textBox_mapping2 = new TabDisableTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox_press3 = new TabDisableTextBox();
-            this.textBox_mapping3 = new TabDisableTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox_press4 = new TabDisableTextBox();
-            this.textBox_mapping4 = new TabDisableTextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox_press5 = new TabDisableTextBox();
-            this.textBox_mapping5 = new TabDisableTextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBox_press6 = new TabDisableTextBox();
-            this.textBox_mapping6 = new TabDisableTextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.textBox_press7 = new TabDisableTextBox();
-            this.textBox_mapping7 = new TabDisableTextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.textBox_press8 = new TabDisableTextBox();
-            this.textBox_mapping8 = new TabDisableTextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.textBox_press9 = new TabDisableTextBox();
-            this.textBox_mapping9 = new TabDisableTextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.textBox_press10 = new TabDisableTextBox();
-            this.textBox_mapping10 = new TabDisableTextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.groupBox_mapping = new System.Windows.Forms.GroupBox();
             this.button_mappingSetting = new System.Windows.Forms.Button();
-            this.button_mappingSave = new System.Windows.Forms.Button();
+            this.label31 = new System.Windows.Forms.Label();
+            this.checkBox_mapping = new System.Windows.Forms.CheckBox();
+            this.textBox_mapping6 = new OpenCirnix.Lite.TabDisableTextBox();
+            this.textBox_press1 = new OpenCirnix.Lite.TabDisableTextBox();
+            this.textBox_mapping1 = new OpenCirnix.Lite.TabDisableTextBox();
+            this.textBox_press2 = new OpenCirnix.Lite.TabDisableTextBox();
+            this.textBox_mapping2 = new OpenCirnix.Lite.TabDisableTextBox();
+            this.textBox_press3 = new OpenCirnix.Lite.TabDisableTextBox();
+            this.textBox_mapping3 = new OpenCirnix.Lite.TabDisableTextBox();
+            this.textBox_press4 = new OpenCirnix.Lite.TabDisableTextBox();
+            this.textBox_mapping4 = new OpenCirnix.Lite.TabDisableTextBox();
+            this.textBox_press5 = new OpenCirnix.Lite.TabDisableTextBox();
+            this.textBox_mapping5 = new OpenCirnix.Lite.TabDisableTextBox();
+            this.textBox_press6 = new OpenCirnix.Lite.TabDisableTextBox();
+            this.textBox_press7 = new OpenCirnix.Lite.TabDisableTextBox();
+            this.textBox_mapping7 = new OpenCirnix.Lite.TabDisableTextBox();
+            this.textBox_press8 = new OpenCirnix.Lite.TabDisableTextBox();
+            this.textBox_mapping8 = new OpenCirnix.Lite.TabDisableTextBox();
+            this.textBox_press9 = new OpenCirnix.Lite.TabDisableTextBox();
+            this.textBox_mapping9 = new OpenCirnix.Lite.TabDisableTextBox();
+            this.textBox_press10 = new OpenCirnix.Lite.TabDisableTextBox();
+            this.textBox_mapping10 = new OpenCirnix.Lite.TabDisableTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_delay)).BeginInit();
             this.groupBox_mapping.SuspendLayout();
             this.SuspendLayout();
@@ -243,31 +244,6 @@ namespace OpenCirnix.Lite
             this.label8.TabIndex = 4;
             this.label8.Text = "= !mm";
             // 
-            // textBox_press1
-            // 
-            this.textBox_press1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_press1.Location = new System.Drawing.Point(36, 17);
-            this.textBox_press1.Name = "textBox_press1";
-            this.textBox_press1.ReadOnly = true;
-            this.textBox_press1.Size = new System.Drawing.Size(50, 21);
-            this.textBox_press1.TabIndex = 6;
-            this.textBox_press1.TabStop = false;
-            this.textBox_press1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox_press1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_press_KeyDown);
-            // 
-            // textBox_mapping1
-            // 
-            this.textBox_mapping1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_mapping1.Location = new System.Drawing.Point(115, 17);
-            this.textBox_mapping1.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this.textBox_mapping1.Name = "textBox_mapping1";
-            this.textBox_mapping1.ReadOnly = true;
-            this.textBox_mapping1.Size = new System.Drawing.Size(50, 21);
-            this.textBox_mapping1.TabIndex = 6;
-            this.textBox_mapping1.TabStop = false;
-            this.textBox_mapping1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox_mapping1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_mapping_KeyDown);
-            // 
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -288,31 +264,6 @@ namespace OpenCirnix.Lite
             this.label13.TabIndex = 8;
             this.label13.Text = "01.";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox_press2
-            // 
-            this.textBox_press2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_press2.Location = new System.Drawing.Point(36, 44);
-            this.textBox_press2.Name = "textBox_press2";
-            this.textBox_press2.ReadOnly = true;
-            this.textBox_press2.Size = new System.Drawing.Size(50, 21);
-            this.textBox_press2.TabIndex = 6;
-            this.textBox_press2.TabStop = false;
-            this.textBox_press2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox_press2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_press_KeyDown);
-            // 
-            // textBox_mapping2
-            // 
-            this.textBox_mapping2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_mapping2.Location = new System.Drawing.Point(115, 44);
-            this.textBox_mapping2.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this.textBox_mapping2.Name = "textBox_mapping2";
-            this.textBox_mapping2.ReadOnly = true;
-            this.textBox_mapping2.Size = new System.Drawing.Size(50, 21);
-            this.textBox_mapping2.TabIndex = 6;
-            this.textBox_mapping2.TabStop = false;
-            this.textBox_mapping2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox_mapping2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_mapping_KeyDown);
             // 
             // label10
             // 
@@ -335,31 +286,6 @@ namespace OpenCirnix.Lite
             this.label11.Text = "02.";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox_press3
-            // 
-            this.textBox_press3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_press3.Location = new System.Drawing.Point(36, 71);
-            this.textBox_press3.Name = "textBox_press3";
-            this.textBox_press3.ReadOnly = true;
-            this.textBox_press3.Size = new System.Drawing.Size(50, 21);
-            this.textBox_press3.TabIndex = 6;
-            this.textBox_press3.TabStop = false;
-            this.textBox_press3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox_press3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_press_KeyDown);
-            // 
-            // textBox_mapping3
-            // 
-            this.textBox_mapping3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_mapping3.Location = new System.Drawing.Point(115, 71);
-            this.textBox_mapping3.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this.textBox_mapping3.Name = "textBox_mapping3";
-            this.textBox_mapping3.ReadOnly = true;
-            this.textBox_mapping3.Size = new System.Drawing.Size(50, 21);
-            this.textBox_mapping3.TabIndex = 6;
-            this.textBox_mapping3.TabStop = false;
-            this.textBox_mapping3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox_mapping3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_mapping_KeyDown);
-            // 
             // label12
             // 
             this.label12.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -380,31 +306,6 @@ namespace OpenCirnix.Lite
             this.label14.TabIndex = 8;
             this.label14.Text = "03.";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox_press4
-            // 
-            this.textBox_press4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_press4.Location = new System.Drawing.Point(36, 98);
-            this.textBox_press4.Name = "textBox_press4";
-            this.textBox_press4.ReadOnly = true;
-            this.textBox_press4.Size = new System.Drawing.Size(50, 21);
-            this.textBox_press4.TabIndex = 6;
-            this.textBox_press4.TabStop = false;
-            this.textBox_press4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox_press4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_press_KeyDown);
-            // 
-            // textBox_mapping4
-            // 
-            this.textBox_mapping4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_mapping4.Location = new System.Drawing.Point(115, 98);
-            this.textBox_mapping4.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this.textBox_mapping4.Name = "textBox_mapping4";
-            this.textBox_mapping4.ReadOnly = true;
-            this.textBox_mapping4.Size = new System.Drawing.Size(50, 21);
-            this.textBox_mapping4.TabIndex = 6;
-            this.textBox_mapping4.TabStop = false;
-            this.textBox_mapping4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox_mapping4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_mapping_KeyDown);
             // 
             // label15
             // 
@@ -427,31 +328,6 @@ namespace OpenCirnix.Lite
             this.label16.Text = "04.";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox_press5
-            // 
-            this.textBox_press5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_press5.Location = new System.Drawing.Point(36, 125);
-            this.textBox_press5.Name = "textBox_press5";
-            this.textBox_press5.ReadOnly = true;
-            this.textBox_press5.Size = new System.Drawing.Size(50, 21);
-            this.textBox_press5.TabIndex = 6;
-            this.textBox_press5.TabStop = false;
-            this.textBox_press5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox_press5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_press_KeyDown);
-            // 
-            // textBox_mapping5
-            // 
-            this.textBox_mapping5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_mapping5.Location = new System.Drawing.Point(115, 125);
-            this.textBox_mapping5.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
-            this.textBox_mapping5.Name = "textBox_mapping5";
-            this.textBox_mapping5.ReadOnly = true;
-            this.textBox_mapping5.Size = new System.Drawing.Size(50, 21);
-            this.textBox_mapping5.TabIndex = 6;
-            this.textBox_mapping5.TabStop = false;
-            this.textBox_mapping5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox_mapping5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_mapping_KeyDown);
-            // 
             // label17
             // 
             this.label17.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -472,30 +348,6 @@ namespace OpenCirnix.Lite
             this.label18.TabIndex = 8;
             this.label18.Text = "05.";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox_press6
-            // 
-            this.textBox_press6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_press6.Location = new System.Drawing.Point(221, 17);
-            this.textBox_press6.Name = "textBox_press6";
-            this.textBox_press6.ReadOnly = true;
-            this.textBox_press6.Size = new System.Drawing.Size(50, 21);
-            this.textBox_press6.TabIndex = 6;
-            this.textBox_press6.TabStop = false;
-            this.textBox_press6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox_press6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_press_KeyDown);
-            // 
-            // textBox_mapping6
-            // 
-            this.textBox_mapping6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_mapping6.Location = new System.Drawing.Point(300, 17);
-            this.textBox_mapping6.Name = "textBox_mapping6";
-            this.textBox_mapping6.ReadOnly = true;
-            this.textBox_mapping6.Size = new System.Drawing.Size(50, 21);
-            this.textBox_mapping6.TabIndex = 6;
-            this.textBox_mapping6.TabStop = false;
-            this.textBox_mapping6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox_mapping6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_mapping_KeyDown);
             // 
             // label19
             // 
@@ -518,30 +370,6 @@ namespace OpenCirnix.Lite
             this.label20.Text = "06.";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox_press7
-            // 
-            this.textBox_press7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_press7.Location = new System.Drawing.Point(221, 44);
-            this.textBox_press7.Name = "textBox_press7";
-            this.textBox_press7.ReadOnly = true;
-            this.textBox_press7.Size = new System.Drawing.Size(50, 21);
-            this.textBox_press7.TabIndex = 6;
-            this.textBox_press7.TabStop = false;
-            this.textBox_press7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox_press7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_press_KeyDown);
-            // 
-            // textBox_mapping7
-            // 
-            this.textBox_mapping7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_mapping7.Location = new System.Drawing.Point(300, 44);
-            this.textBox_mapping7.Name = "textBox_mapping7";
-            this.textBox_mapping7.ReadOnly = true;
-            this.textBox_mapping7.Size = new System.Drawing.Size(50, 21);
-            this.textBox_mapping7.TabIndex = 6;
-            this.textBox_mapping7.TabStop = false;
-            this.textBox_mapping7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox_mapping7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_mapping_KeyDown);
-            // 
             // label21
             // 
             this.label21.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -562,30 +390,6 @@ namespace OpenCirnix.Lite
             this.label22.TabIndex = 8;
             this.label22.Text = "07.";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox_press8
-            // 
-            this.textBox_press8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_press8.Location = new System.Drawing.Point(221, 71);
-            this.textBox_press8.Name = "textBox_press8";
-            this.textBox_press8.ReadOnly = true;
-            this.textBox_press8.Size = new System.Drawing.Size(50, 21);
-            this.textBox_press8.TabIndex = 6;
-            this.textBox_press8.TabStop = false;
-            this.textBox_press8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox_press8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_press_KeyDown);
-            // 
-            // textBox_mapping8
-            // 
-            this.textBox_mapping8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_mapping8.Location = new System.Drawing.Point(300, 71);
-            this.textBox_mapping8.Name = "textBox_mapping8";
-            this.textBox_mapping8.ReadOnly = true;
-            this.textBox_mapping8.Size = new System.Drawing.Size(50, 21);
-            this.textBox_mapping8.TabIndex = 6;
-            this.textBox_mapping8.TabStop = false;
-            this.textBox_mapping8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox_mapping8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_mapping_KeyDown);
             // 
             // label23
             // 
@@ -608,30 +412,6 @@ namespace OpenCirnix.Lite
             this.label24.Text = "08.";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox_press9
-            // 
-            this.textBox_press9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_press9.Location = new System.Drawing.Point(221, 98);
-            this.textBox_press9.Name = "textBox_press9";
-            this.textBox_press9.ReadOnly = true;
-            this.textBox_press9.Size = new System.Drawing.Size(50, 21);
-            this.textBox_press9.TabIndex = 6;
-            this.textBox_press9.TabStop = false;
-            this.textBox_press9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox_press9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_press_KeyDown);
-            // 
-            // textBox_mapping9
-            // 
-            this.textBox_mapping9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_mapping9.Location = new System.Drawing.Point(300, 98);
-            this.textBox_mapping9.Name = "textBox_mapping9";
-            this.textBox_mapping9.ReadOnly = true;
-            this.textBox_mapping9.Size = new System.Drawing.Size(50, 21);
-            this.textBox_mapping9.TabIndex = 6;
-            this.textBox_mapping9.TabStop = false;
-            this.textBox_mapping9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox_mapping9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_mapping_KeyDown);
-            // 
             // label25
             // 
             this.label25.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -652,30 +432,6 @@ namespace OpenCirnix.Lite
             this.label26.TabIndex = 8;
             this.label26.Text = "09.";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox_press10
-            // 
-            this.textBox_press10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_press10.Location = new System.Drawing.Point(221, 125);
-            this.textBox_press10.Name = "textBox_press10";
-            this.textBox_press10.ReadOnly = true;
-            this.textBox_press10.Size = new System.Drawing.Size(50, 21);
-            this.textBox_press10.TabIndex = 6;
-            this.textBox_press10.TabStop = false;
-            this.textBox_press10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox_press10.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_press_KeyDown);
-            // 
-            // textBox_mapping10
-            // 
-            this.textBox_mapping10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_mapping10.Location = new System.Drawing.Point(300, 125);
-            this.textBox_mapping10.Name = "textBox_mapping10";
-            this.textBox_mapping10.ReadOnly = true;
-            this.textBox_mapping10.Size = new System.Drawing.Size(50, 21);
-            this.textBox_mapping10.TabIndex = 6;
-            this.textBox_mapping10.TabStop = false;
-            this.textBox_mapping10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox_mapping10.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_mapping_KeyDown);
             // 
             // label27
             // 
@@ -771,7 +527,7 @@ namespace OpenCirnix.Lite
             // 
             // button_mappingSetting
             // 
-            this.button_mappingSetting.Location = new System.Drawing.Point(12, 155);
+            this.button_mappingSetting.Location = new System.Drawing.Point(268, 155);
             this.button_mappingSetting.Name = "button_mappingSetting";
             this.button_mappingSetting.Size = new System.Drawing.Size(100, 23);
             this.button_mappingSetting.TabIndex = 5;
@@ -779,23 +535,282 @@ namespace OpenCirnix.Lite
             this.button_mappingSetting.UseVisualStyleBackColor = true;
             this.button_mappingSetting.Click += new System.EventHandler(this.button_mappingSetting_Click);
             // 
-            // button_mappingSave
+            // label31
             // 
-            this.button_mappingSave.Enabled = false;
-            this.button_mappingSave.Location = new System.Drawing.Point(118, 155);
-            this.button_mappingSave.Name = "button_mappingSave";
-            this.button_mappingSave.Size = new System.Drawing.Size(100, 23);
-            this.button_mappingSave.TabIndex = 6;
-            this.button_mappingSave.Text = "키 맵핑 적용";
-            this.button_mappingSave.UseVisualStyleBackColor = true;
-            this.button_mappingSave.Click += new System.EventHandler(this.button_mappingSave_Click);
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(14, 351);
+            this.label31.Margin = new System.Windows.Forms.Padding(5);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(445, 12);
+            this.label31.TabIndex = 4;
+            this.label31.Text = "※ 키 맵핑은 입력 키를(좌측) 누르면 인게임에서 맵핑 키가(우측) 적용되는 것 임.";
+            // 
+            // checkBox_mapping
+            // 
+            this.checkBox_mapping.AutoSize = true;
+            this.checkBox_mapping.Checked = true;
+            this.checkBox_mapping.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_mapping.Location = new System.Drawing.Point(12, 159);
+            this.checkBox_mapping.Name = "checkBox_mapping";
+            this.checkBox_mapping.Size = new System.Drawing.Size(92, 16);
+            this.checkBox_mapping.TabIndex = 6;
+            this.checkBox_mapping.Text = "키 맵핑 적용";
+            this.checkBox_mapping.UseVisualStyleBackColor = true;
+            this.checkBox_mapping.CheckedChanged += new System.EventHandler(this.checkBox_mapping_CheckedChanged);
+            // 
+            // textBox_mapping6
+            // 
+            this.textBox_mapping6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_mapping6.Location = new System.Drawing.Point(300, 17);
+            this.textBox_mapping6.Name = "textBox_mapping6";
+            this.textBox_mapping6.ReadOnly = true;
+            this.textBox_mapping6.Size = new System.Drawing.Size(50, 21);
+            this.textBox_mapping6.TabIndex = 6;
+            this.textBox_mapping6.TabStop = false;
+            this.textBox_mapping6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_mapping6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_mapping_KeyDown);
+            // 
+            // textBox_press1
+            // 
+            this.textBox_press1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_press1.Location = new System.Drawing.Point(36, 17);
+            this.textBox_press1.Name = "textBox_press1";
+            this.textBox_press1.ReadOnly = true;
+            this.textBox_press1.Size = new System.Drawing.Size(50, 21);
+            this.textBox_press1.TabIndex = 6;
+            this.textBox_press1.TabStop = false;
+            this.textBox_press1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_press1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_press_KeyDown);
+            // 
+            // textBox_mapping1
+            // 
+            this.textBox_mapping1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_mapping1.Location = new System.Drawing.Point(115, 17);
+            this.textBox_mapping1.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this.textBox_mapping1.Name = "textBox_mapping1";
+            this.textBox_mapping1.ReadOnly = true;
+            this.textBox_mapping1.Size = new System.Drawing.Size(50, 21);
+            this.textBox_mapping1.TabIndex = 6;
+            this.textBox_mapping1.TabStop = false;
+            this.textBox_mapping1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_mapping1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_mapping_KeyDown);
+            // 
+            // textBox_press2
+            // 
+            this.textBox_press2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_press2.Location = new System.Drawing.Point(36, 44);
+            this.textBox_press2.Name = "textBox_press2";
+            this.textBox_press2.ReadOnly = true;
+            this.textBox_press2.Size = new System.Drawing.Size(50, 21);
+            this.textBox_press2.TabIndex = 6;
+            this.textBox_press2.TabStop = false;
+            this.textBox_press2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_press2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_press_KeyDown);
+            // 
+            // textBox_mapping2
+            // 
+            this.textBox_mapping2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_mapping2.Location = new System.Drawing.Point(115, 44);
+            this.textBox_mapping2.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this.textBox_mapping2.Name = "textBox_mapping2";
+            this.textBox_mapping2.ReadOnly = true;
+            this.textBox_mapping2.Size = new System.Drawing.Size(50, 21);
+            this.textBox_mapping2.TabIndex = 6;
+            this.textBox_mapping2.TabStop = false;
+            this.textBox_mapping2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_mapping2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_mapping_KeyDown);
+            // 
+            // textBox_press3
+            // 
+            this.textBox_press3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_press3.Location = new System.Drawing.Point(36, 71);
+            this.textBox_press3.Name = "textBox_press3";
+            this.textBox_press3.ReadOnly = true;
+            this.textBox_press3.Size = new System.Drawing.Size(50, 21);
+            this.textBox_press3.TabIndex = 6;
+            this.textBox_press3.TabStop = false;
+            this.textBox_press3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_press3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_press_KeyDown);
+            // 
+            // textBox_mapping3
+            // 
+            this.textBox_mapping3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_mapping3.Location = new System.Drawing.Point(115, 71);
+            this.textBox_mapping3.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this.textBox_mapping3.Name = "textBox_mapping3";
+            this.textBox_mapping3.ReadOnly = true;
+            this.textBox_mapping3.Size = new System.Drawing.Size(50, 21);
+            this.textBox_mapping3.TabIndex = 6;
+            this.textBox_mapping3.TabStop = false;
+            this.textBox_mapping3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_mapping3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_mapping_KeyDown);
+            // 
+            // textBox_press4
+            // 
+            this.textBox_press4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_press4.Location = new System.Drawing.Point(36, 98);
+            this.textBox_press4.Name = "textBox_press4";
+            this.textBox_press4.ReadOnly = true;
+            this.textBox_press4.Size = new System.Drawing.Size(50, 21);
+            this.textBox_press4.TabIndex = 6;
+            this.textBox_press4.TabStop = false;
+            this.textBox_press4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_press4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_press_KeyDown);
+            // 
+            // textBox_mapping4
+            // 
+            this.textBox_mapping4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_mapping4.Location = new System.Drawing.Point(115, 98);
+            this.textBox_mapping4.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this.textBox_mapping4.Name = "textBox_mapping4";
+            this.textBox_mapping4.ReadOnly = true;
+            this.textBox_mapping4.Size = new System.Drawing.Size(50, 21);
+            this.textBox_mapping4.TabIndex = 6;
+            this.textBox_mapping4.TabStop = false;
+            this.textBox_mapping4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_mapping4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_mapping_KeyDown);
+            // 
+            // textBox_press5
+            // 
+            this.textBox_press5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_press5.Location = new System.Drawing.Point(36, 125);
+            this.textBox_press5.Name = "textBox_press5";
+            this.textBox_press5.ReadOnly = true;
+            this.textBox_press5.Size = new System.Drawing.Size(50, 21);
+            this.textBox_press5.TabIndex = 6;
+            this.textBox_press5.TabStop = false;
+            this.textBox_press5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_press5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_press_KeyDown);
+            // 
+            // textBox_mapping5
+            // 
+            this.textBox_mapping5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_mapping5.Location = new System.Drawing.Point(115, 125);
+            this.textBox_mapping5.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this.textBox_mapping5.Name = "textBox_mapping5";
+            this.textBox_mapping5.ReadOnly = true;
+            this.textBox_mapping5.Size = new System.Drawing.Size(50, 21);
+            this.textBox_mapping5.TabIndex = 6;
+            this.textBox_mapping5.TabStop = false;
+            this.textBox_mapping5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_mapping5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_mapping_KeyDown);
+            // 
+            // textBox_press6
+            // 
+            this.textBox_press6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_press6.Location = new System.Drawing.Point(221, 17);
+            this.textBox_press6.Name = "textBox_press6";
+            this.textBox_press6.ReadOnly = true;
+            this.textBox_press6.Size = new System.Drawing.Size(50, 21);
+            this.textBox_press6.TabIndex = 6;
+            this.textBox_press6.TabStop = false;
+            this.textBox_press6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_press6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_press_KeyDown);
+            // 
+            // textBox_press7
+            // 
+            this.textBox_press7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_press7.Location = new System.Drawing.Point(221, 44);
+            this.textBox_press7.Name = "textBox_press7";
+            this.textBox_press7.ReadOnly = true;
+            this.textBox_press7.Size = new System.Drawing.Size(50, 21);
+            this.textBox_press7.TabIndex = 6;
+            this.textBox_press7.TabStop = false;
+            this.textBox_press7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_press7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_press_KeyDown);
+            // 
+            // textBox_mapping7
+            // 
+            this.textBox_mapping7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_mapping7.Location = new System.Drawing.Point(300, 44);
+            this.textBox_mapping7.Name = "textBox_mapping7";
+            this.textBox_mapping7.ReadOnly = true;
+            this.textBox_mapping7.Size = new System.Drawing.Size(50, 21);
+            this.textBox_mapping7.TabIndex = 6;
+            this.textBox_mapping7.TabStop = false;
+            this.textBox_mapping7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_mapping7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_mapping_KeyDown);
+            // 
+            // textBox_press8
+            // 
+            this.textBox_press8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_press8.Location = new System.Drawing.Point(221, 71);
+            this.textBox_press8.Name = "textBox_press8";
+            this.textBox_press8.ReadOnly = true;
+            this.textBox_press8.Size = new System.Drawing.Size(50, 21);
+            this.textBox_press8.TabIndex = 6;
+            this.textBox_press8.TabStop = false;
+            this.textBox_press8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_press8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_press_KeyDown);
+            // 
+            // textBox_mapping8
+            // 
+            this.textBox_mapping8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_mapping8.Location = new System.Drawing.Point(300, 71);
+            this.textBox_mapping8.Name = "textBox_mapping8";
+            this.textBox_mapping8.ReadOnly = true;
+            this.textBox_mapping8.Size = new System.Drawing.Size(50, 21);
+            this.textBox_mapping8.TabIndex = 6;
+            this.textBox_mapping8.TabStop = false;
+            this.textBox_mapping8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_mapping8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_mapping_KeyDown);
+            // 
+            // textBox_press9
+            // 
+            this.textBox_press9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_press9.Location = new System.Drawing.Point(221, 98);
+            this.textBox_press9.Name = "textBox_press9";
+            this.textBox_press9.ReadOnly = true;
+            this.textBox_press9.Size = new System.Drawing.Size(50, 21);
+            this.textBox_press9.TabIndex = 6;
+            this.textBox_press9.TabStop = false;
+            this.textBox_press9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_press9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_press_KeyDown);
+            // 
+            // textBox_mapping9
+            // 
+            this.textBox_mapping9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_mapping9.Location = new System.Drawing.Point(300, 98);
+            this.textBox_mapping9.Name = "textBox_mapping9";
+            this.textBox_mapping9.ReadOnly = true;
+            this.textBox_mapping9.Size = new System.Drawing.Size(50, 21);
+            this.textBox_mapping9.TabIndex = 6;
+            this.textBox_mapping9.TabStop = false;
+            this.textBox_mapping9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_mapping9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_mapping_KeyDown);
+            // 
+            // textBox_press10
+            // 
+            this.textBox_press10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_press10.Location = new System.Drawing.Point(221, 125);
+            this.textBox_press10.Name = "textBox_press10";
+            this.textBox_press10.ReadOnly = true;
+            this.textBox_press10.Size = new System.Drawing.Size(50, 21);
+            this.textBox_press10.TabIndex = 6;
+            this.textBox_press10.TabStop = false;
+            this.textBox_press10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_press10.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_press_KeyDown);
+            // 
+            // textBox_mapping10
+            // 
+            this.textBox_mapping10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_mapping10.Location = new System.Drawing.Point(300, 125);
+            this.textBox_mapping10.Name = "textBox_mapping10";
+            this.textBox_mapping10.ReadOnly = true;
+            this.textBox_mapping10.Size = new System.Drawing.Size(50, 21);
+            this.textBox_mapping10.TabIndex = 6;
+            this.textBox_mapping10.TabStop = false;
+            this.textBox_mapping10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_mapping10.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_mapping_KeyDown);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 349);
+            this.ClientSize = new System.Drawing.Size(572, 371);
+            this.Controls.Add(this.checkBox_mapping);
             this.Controls.Add(this.groupBox_mapping);
+            this.Controls.Add(this.label31);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label7);
@@ -807,7 +822,6 @@ namespace OpenCirnix.Lite
             this.Controls.Add(this.label29);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button_speedStarter);
-            this.Controls.Add(this.button_mappingSave);
             this.Controls.Add(this.button_mappingSetting);
             this.Controls.Add(this.button_memory);
             this.Controls.Add(this.button_autoRG);
@@ -892,7 +906,8 @@ namespace OpenCirnix.Lite
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.GroupBox groupBox_mapping;
         private System.Windows.Forms.Button button_mappingSetting;
-        private System.Windows.Forms.Button button_mappingSave;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.CheckBox checkBox_mapping;
     }
 }
 
