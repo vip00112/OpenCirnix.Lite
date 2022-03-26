@@ -69,6 +69,9 @@ namespace OpenCirnix.Lite
             this.button_mappingSetting = new System.Windows.Forms.Button();
             this.label31 = new System.Windows.Forms.Label();
             this.checkBox_mapping = new System.Windows.Forms.CheckBox();
+            this.textBox_path = new System.Windows.Forms.TextBox();
+            this.checkBox_window = new System.Windows.Forms.CheckBox();
+            this.button_start = new System.Windows.Forms.Button();
             this.textBox_mapping6 = new OpenCirnix.Lite.TabDisableTextBox();
             this.textBox_press1 = new OpenCirnix.Lite.TabDisableTextBox();
             this.textBox_mapping1 = new OpenCirnix.Lite.TabDisableTextBox();
@@ -95,7 +98,7 @@ namespace OpenCirnix.Lite
             // 
             // richTextBox_log
             // 
-            this.richTextBox_log.Location = new System.Drawing.Point(12, 12);
+            this.richTextBox_log.Location = new System.Drawing.Point(12, 68);
             this.richTextBox_log.Name = "richTextBox_log";
             this.richTextBox_log.ReadOnly = true;
             this.richTextBox_log.Size = new System.Drawing.Size(250, 137);
@@ -105,7 +108,7 @@ namespace OpenCirnix.Lite
             // 
             // numericUpDown_delay
             // 
-            this.numericUpDown_delay.Location = new System.Drawing.Point(268, 12);
+            this.numericUpDown_delay.Location = new System.Drawing.Point(268, 75);
             this.numericUpDown_delay.Maximum = new decimal(new int[] {
             550,
             0,
@@ -113,7 +116,7 @@ namespace OpenCirnix.Lite
             0});
             this.numericUpDown_delay.Name = "numericUpDown_delay";
             this.numericUpDown_delay.Size = new System.Drawing.Size(100, 21);
-            this.numericUpDown_delay.TabIndex = 0;
+            this.numericUpDown_delay.TabIndex = 2;
             this.numericUpDown_delay.Value = new decimal(new int[] {
             50,
             0,
@@ -122,40 +125,40 @@ namespace OpenCirnix.Lite
             // 
             // button_gameDelay
             // 
-            this.button_gameDelay.Location = new System.Drawing.Point(268, 39);
+            this.button_gameDelay.Location = new System.Drawing.Point(268, 102);
             this.button_gameDelay.Name = "button_gameDelay";
             this.button_gameDelay.Size = new System.Drawing.Size(100, 23);
-            this.button_gameDelay.TabIndex = 1;
+            this.button_gameDelay.TabIndex = 3;
             this.button_gameDelay.Text = "게임 딜레이";
             this.button_gameDelay.UseVisualStyleBackColor = true;
             this.button_gameDelay.Click += new System.EventHandler(this.button_gameDelay_Click);
             // 
             // button_autoRG
             // 
-            this.button_autoRG.Location = new System.Drawing.Point(268, 68);
+            this.button_autoRG.Location = new System.Drawing.Point(268, 131);
             this.button_autoRG.Name = "button_autoRG";
             this.button_autoRG.Size = new System.Drawing.Size(100, 23);
-            this.button_autoRG.TabIndex = 2;
+            this.button_autoRG.TabIndex = 4;
             this.button_autoRG.Text = "자동 새로고침";
             this.button_autoRG.UseVisualStyleBackColor = true;
             this.button_autoRG.Click += new System.EventHandler(this.button_autoRG_Click);
             // 
             // button_memory
             // 
-            this.button_memory.Location = new System.Drawing.Point(268, 126);
+            this.button_memory.Location = new System.Drawing.Point(268, 189);
             this.button_memory.Name = "button_memory";
             this.button_memory.Size = new System.Drawing.Size(100, 23);
-            this.button_memory.TabIndex = 4;
+            this.button_memory.TabIndex = 6;
             this.button_memory.Text = "메모리 정리";
             this.button_memory.UseVisualStyleBackColor = true;
             this.button_memory.Click += new System.EventHandler(this.button_memory_Click);
             // 
             // button_speedStarter
             // 
-            this.button_speedStarter.Location = new System.Drawing.Point(268, 97);
+            this.button_speedStarter.Location = new System.Drawing.Point(268, 160);
             this.button_speedStarter.Name = "button_speedStarter";
             this.button_speedStarter.Size = new System.Drawing.Size(100, 23);
-            this.button_speedStarter.TabIndex = 3;
+            this.button_speedStarter.TabIndex = 5;
             this.button_speedStarter.Text = "빠른 게임시작";
             this.button_speedStarter.UseVisualStyleBackColor = true;
             this.button_speedStarter.Click += new System.EventHandler(this.button_speedStarter_Click);
@@ -164,7 +167,7 @@ namespace OpenCirnix.Lite
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(376, 44);
+            this.label1.Location = new System.Drawing.Point(376, 107);
             this.label1.Margin = new System.Windows.Forms.Padding(5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 12);
@@ -175,7 +178,7 @@ namespace OpenCirnix.Lite
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(376, 73);
+            this.label2.Location = new System.Drawing.Point(376, 136);
             this.label2.Margin = new System.Windows.Forms.Padding(5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 12);
@@ -186,7 +189,7 @@ namespace OpenCirnix.Lite
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(376, 102);
+            this.label3.Location = new System.Drawing.Point(376, 165);
             this.label3.Margin = new System.Windows.Forms.Padding(5);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 12);
@@ -197,7 +200,7 @@ namespace OpenCirnix.Lite
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(376, 131);
+            this.label4.Location = new System.Drawing.Point(376, 194);
             this.label4.Margin = new System.Windows.Forms.Padding(5);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 12);
@@ -207,7 +210,7 @@ namespace OpenCirnix.Lite
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(474, 44);
+            this.label5.Location = new System.Drawing.Point(474, 107);
             this.label5.Margin = new System.Windows.Forms.Padding(5);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 12);
@@ -217,7 +220,7 @@ namespace OpenCirnix.Lite
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(474, 73);
+            this.label6.Location = new System.Drawing.Point(474, 136);
             this.label6.Margin = new System.Windows.Forms.Padding(5);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(30, 12);
@@ -227,7 +230,7 @@ namespace OpenCirnix.Lite
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(474, 102);
+            this.label7.Location = new System.Drawing.Point(474, 165);
             this.label7.Margin = new System.Windows.Forms.Padding(5);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(33, 12);
@@ -237,7 +240,7 @@ namespace OpenCirnix.Lite
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(474, 131);
+            this.label8.Location = new System.Drawing.Point(474, 194);
             this.label8.Margin = new System.Windows.Forms.Padding(5);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 12);
@@ -458,7 +461,7 @@ namespace OpenCirnix.Lite
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label29.Location = new System.Drawing.Point(376, 197);
+            this.label29.Location = new System.Drawing.Point(376, 260);
             this.label29.Margin = new System.Windows.Forms.Padding(5);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(49, 12);
@@ -467,7 +470,7 @@ namespace OpenCirnix.Lite
             // 
             // label30
             // 
-            this.label30.Location = new System.Drawing.Point(376, 219);
+            this.label30.Location = new System.Drawing.Point(376, 282);
             this.label30.Margin = new System.Windows.Forms.Padding(5);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(207, 124);
@@ -518,7 +521,7 @@ namespace OpenCirnix.Lite
             this.groupBox_mapping.Controls.Add(this.textBox_mapping10);
             this.groupBox_mapping.Controls.Add(this.label9);
             this.groupBox_mapping.Enabled = false;
-            this.groupBox_mapping.Location = new System.Drawing.Point(12, 187);
+            this.groupBox_mapping.Location = new System.Drawing.Point(12, 250);
             this.groupBox_mapping.Name = "groupBox_mapping";
             this.groupBox_mapping.Size = new System.Drawing.Size(356, 156);
             this.groupBox_mapping.TabIndex = 0;
@@ -527,10 +530,10 @@ namespace OpenCirnix.Lite
             // 
             // button_mappingSetting
             // 
-            this.button_mappingSetting.Location = new System.Drawing.Point(268, 155);
+            this.button_mappingSetting.Location = new System.Drawing.Point(268, 218);
             this.button_mappingSetting.Name = "button_mappingSetting";
             this.button_mappingSetting.Size = new System.Drawing.Size(100, 23);
-            this.button_mappingSetting.TabIndex = 5;
+            this.button_mappingSetting.TabIndex = 8;
             this.button_mappingSetting.Text = "키 맵핑 편집";
             this.button_mappingSetting.UseVisualStyleBackColor = true;
             this.button_mappingSetting.Click += new System.EventHandler(this.button_mappingSetting_Click);
@@ -538,7 +541,7 @@ namespace OpenCirnix.Lite
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(14, 351);
+            this.label31.Location = new System.Drawing.Point(14, 414);
             this.label31.Margin = new System.Windows.Forms.Padding(5);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(445, 12);
@@ -550,13 +553,44 @@ namespace OpenCirnix.Lite
             this.checkBox_mapping.AutoSize = true;
             this.checkBox_mapping.Checked = true;
             this.checkBox_mapping.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_mapping.Location = new System.Drawing.Point(12, 159);
+            this.checkBox_mapping.Location = new System.Drawing.Point(12, 208);
             this.checkBox_mapping.Name = "checkBox_mapping";
             this.checkBox_mapping.Size = new System.Drawing.Size(92, 16);
-            this.checkBox_mapping.TabIndex = 6;
+            this.checkBox_mapping.TabIndex = 7;
             this.checkBox_mapping.Text = "키 맵핑 적용";
             this.checkBox_mapping.UseVisualStyleBackColor = true;
             this.checkBox_mapping.CheckedChanged += new System.EventHandler(this.checkBox_mapping_CheckedChanged);
+            // 
+            // textBox_path
+            // 
+            this.textBox_path.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_path.Location = new System.Drawing.Point(12, 41);
+            this.textBox_path.Name = "textBox_path";
+            this.textBox_path.ReadOnly = true;
+            this.textBox_path.Size = new System.Drawing.Size(548, 21);
+            this.textBox_path.TabIndex = 0;
+            this.textBox_path.TabStop = false;
+            this.textBox_path.Click += new System.EventHandler(this.textBox_path_Click);
+            // 
+            // checkBox_window
+            // 
+            this.checkBox_window.AutoSize = true;
+            this.checkBox_window.Location = new System.Drawing.Point(118, 16);
+            this.checkBox_window.Name = "checkBox_window";
+            this.checkBox_window.Size = new System.Drawing.Size(60, 16);
+            this.checkBox_window.TabIndex = 1;
+            this.checkBox_window.Text = "창모드";
+            this.checkBox_window.UseVisualStyleBackColor = true;
+            // 
+            // button_start
+            // 
+            this.button_start.Location = new System.Drawing.Point(12, 12);
+            this.button_start.Name = "button_start";
+            this.button_start.Size = new System.Drawing.Size(100, 23);
+            this.button_start.TabIndex = 0;
+            this.button_start.Text = "실행";
+            this.button_start.UseVisualStyleBackColor = true;
+            this.button_start.Click += new System.EventHandler(this.button_start_Click);
             // 
             // textBox_mapping6
             // 
@@ -807,7 +841,10 @@ namespace OpenCirnix.Lite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 371);
+            this.ClientSize = new System.Drawing.Size(572, 436);
+            this.Controls.Add(this.button_start);
+            this.Controls.Add(this.checkBox_window);
+            this.Controls.Add(this.textBox_path);
             this.Controls.Add(this.checkBox_mapping);
             this.Controls.Add(this.groupBox_mapping);
             this.Controls.Add(this.label31);
@@ -908,6 +945,9 @@ namespace OpenCirnix.Lite
         private System.Windows.Forms.Button button_mappingSetting;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.CheckBox checkBox_mapping;
+        private System.Windows.Forms.TextBox textBox_path;
+        private System.Windows.Forms.CheckBox checkBox_window;
+        private System.Windows.Forms.Button button_start;
     }
 }
 

@@ -18,6 +18,10 @@ namespace OpenCirnix.Lite
             KeyMappings = new List<KeyMapping>();
         }
 
+        public bool IsWindowMode { get; set; }
+
+        public string Path { get; set; }
+
         public bool IsUseKeyMapping { get; set; } = true;
 
         public List<KeyMapping> KeyMappings { get; set; }

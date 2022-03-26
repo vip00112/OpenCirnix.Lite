@@ -71,6 +71,36 @@ namespace OpenCirnix.Lite
             SaveSetting();
         }
 
+        private void textBox_path_Click(object sender, EventArgs e)
+        {
+            SelectPath();
+        }
+
+        private void button_start_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox_path.Text))
+            {
+                SelectPath();
+            }
+
+            string path = textBox_path.Text;
+            if (string.IsNullOrWhiteSpace(path)) return;
+
+            bool isWindow = checkBox_window.Checked;
+            try
+            {
+                var pi = new ProcessStartInfo();
+                pi.FileName = path;
+                if (isWindow) pi.Arguments = "-window";
+
+                Process.Start(pi);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void button_gameDelay_Click(object sender, EventArgs e)
         {
             int delay = (int) numericUpDown_delay.Value;
@@ -121,14 +151,14 @@ namespace OpenCirnix.Lite
         {
             if (checkBox_mapping.Checked)
             {
-                Height = 410;
+                Height = 475;
                 button_mappingSetting.Enabled = true;
                 ActionHandler.StartKeyMapping();
                 WriteLog("[ 키 맵핑 후킹 ] 시작.");
             }
             else
             {
-                Height = 225;
+                Height = 285;
                 button_mappingSetting.Enabled = false;
                 ActionHandler.StopKeyMapping();
                 WriteLog("[ 키 맵핑 후킹 ] 종료.");
@@ -208,34 +238,36 @@ namespace OpenCirnix.Lite
         private void LoadSetting()
         {
             var setting = Setting.Load();
-            if (setting != null)
+            if (setting == null) return;
+
+            checkBox_window.Checked = setting.IsWindowMode;
+            textBox_path.Text = setting.Path;
+
+            int idx = 1;
+            foreach (var mapping in setting.KeyMappings)
             {
-                int idx = 1;
-                foreach (var mapping in setting.KeyMappings)
-                {
-                    string pressName = $"textBox_press{idx}";
-                    var pressControl = Controls.Find(pressName, true).OfType<TextBox>().FirstOrDefault();
-                    if (pressControl == null) continue;
+                string pressName = $"textBox_press{idx}";
+                var pressControl = Controls.Find(pressName, true).OfType<TextBox>().FirstOrDefault();
+                if (pressControl == null) continue;
 
-                    string mappingName = $"textBox_mapping{idx}";
-                    var mappingControl = Controls.Find(mappingName, true).OfType<TextBox>().FirstOrDefault();
-                    if (mappingControl == null) continue;
+                string mappingName = $"textBox_mapping{idx}";
+                var mappingControl = Controls.Find(mappingName, true).OfType<TextBox>().FirstOrDefault();
+                if (mappingControl == null) continue;
 
-                    pressControl.Tag = mapping.Press;
-                    pressControl.Text = KeyMapping.GetKeyString(mapping.Press);
-                    mappingControl.Tag = mapping.Mapping;
-                    mappingControl.Text = KeyMapping.GetKeyString(mapping.Mapping);
-                    AddKeyMapping(mapping.Press, mapping.Mapping);
+                pressControl.Tag = mapping.Press;
+                pressControl.Text = KeyMapping.GetKeyString(mapping.Press);
+                mappingControl.Tag = mapping.Mapping;
+                mappingControl.Text = KeyMapping.GetKeyString(mapping.Mapping);
+                AddKeyMapping(mapping.Press, mapping.Mapping);
 
-                    idx++;
-                }
+                idx++;
+            }
 
-                checkBox_mapping.Checked = setting.IsUseKeyMapping;
-                if (checkBox_mapping.Checked)
-                {
-                    ActionHandler.StartKeyMapping();
-                    WriteLog("[ 키 맵핑 후킹 ] 시작.");
-                }
+            checkBox_mapping.Checked = setting.IsUseKeyMapping;
+            if (checkBox_mapping.Checked)
+            {
+                ActionHandler.StartKeyMapping();
+                WriteLog("[ 키 맵핑 후킹 ] 시작.");
             }
         }
 
@@ -243,6 +275,8 @@ namespace OpenCirnix.Lite
         {
             var setting = new Setting()
             {
+                IsWindowMode = checkBox_window.Checked,
+                Path = textBox_path.Text,
                 IsUseKeyMapping = checkBox_mapping.Checked,
                 KeyMappings = KeyMappingAction.GetMappings(),
             };
@@ -426,6 +460,17 @@ namespace OpenCirnix.Lite
         {
             ActionHandler.MemoryOptimize();
             WriteLog("[ 메모리 정리 ] 시작.");
+        }
+
+        private void SelectPath()
+        {
+            using (var ofd = new OpenFileDialog())
+            {
+                ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                if (ofd.ShowDialog() != DialogResult.OK) return;
+
+                textBox_path.Text = ofd.FileName;
+            }
         }
 
         private bool ValidateKey(Keys key)
