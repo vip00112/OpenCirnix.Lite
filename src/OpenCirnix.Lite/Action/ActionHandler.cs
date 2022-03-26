@@ -44,22 +44,11 @@ namespace OpenCirnix.Lite
 
         public static async void MemoryOptimize()
         {
-            int ResultDelay;
-
-            ResultDelay = 5;
-            ChatAction.SendMsg(true, "[ 메모리 정리 ] 시작.");
-
-            if (await TrimProcessMemory(ResultDelay))
+            if (await TrimProcessMemory(0))
             {
-                long ChangedMemory = MemoryValue[0] - MemoryValue[2];
-                if (ChangedMemory < 0)
-                {
-                    ChatAction.SendMsg(true, $"[ 메모리 정리 ] 결과 : {ConvertSize(MemoryValue[0])} + {ConvertSize(-ChangedMemory)} = {ConvertSize(MemoryValue[2])}.");
-                }
-                else
-                {
-                    ChatAction.SendMsg(true, $"[ 메모리 정리 ] 결과 : {ConvertSize(MemoryValue[0])} - {ConvertSize(ChangedMemory)} = {ConvertSize(MemoryValue[2])}.");
-                }
+                long changedMemory = MemoryValue[0] - MemoryValue[2];
+                string result = (changedMemory < 0) ? "증가" : "정리";
+                ChatAction.SendMsg(true, $"[ 메모리 정리 ] : {ConvertSize(changedMemory)} {result} ({ConvertSize(MemoryValue[0])} -> {ConvertSize(MemoryValue[2])}).");
             }
         }
 

@@ -208,23 +208,23 @@ namespace OpenCirnix.Lite
         /// </summary>
         /// <param name="process">메모리 해제를 할 프로세스</param>
         /// <returns>메모리 해제 여부</returns>
-        public static async Task<bool> TrimProcessMemory(Process process, int ResultDelay, bool NeedResult = false)
+        public static async Task<bool> TrimProcessMemory(Process process, int delay, bool needResult = false)
         {
             if (process == null) return false;
-            bool _result;
+            bool result;
             try
             {
                 process.Refresh();
                 long oldWorkingSet64 = process.WorkingSet64;
-                _result = EmptyWorkingSet(process.Handle);
-                if (_result && NeedResult)
+                result = EmptyWorkingSet(process.Handle);
+                if (result && needResult)
                 {
                     MemoryValue[0] = oldWorkingSet64;
                     process.Refresh();
                     MemoryValue[1] = process.WorkingSet64;
-                    if (ResultDelay > 0)
+                    if (delay > 0)
                     {
-                        await Task.Delay(ResultDelay);
+                        await Task.Delay(delay);
                         process.Refresh();
                         MemoryValue[2] = process.WorkingSet64;
                     }
@@ -234,16 +234,13 @@ namespace OpenCirnix.Lite
             }
             catch
             {
-                _result = false;
+                result = false;
             }
 
-            return _result;
+            return result;
         }
 
-        public static async Task<bool> TrimProcessMemory(bool NeedResult = false)
-            => await TrimProcessMemory(Warcraft3Info.Process, 5000, NeedResult);
-
-        public static async Task<bool> TrimProcessMemory(int ResultDelay)
-            => await TrimProcessMemory(Warcraft3Info.Process, ResultDelay * 1000, true);
+        public static async Task<bool> TrimProcessMemory(int delay)
+            => await TrimProcessMemory(Warcraft3Info.Process, delay * 1000, true);
     }
 }

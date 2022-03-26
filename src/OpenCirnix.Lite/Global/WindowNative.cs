@@ -74,10 +74,7 @@ namespace OpenCirnix.Lite
 
         [DllImport("psapi", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool EmptyWorkingSet
-        (
-            [In] IntPtr hWnd
-        );
+        internal static extern bool EmptyWorkingSet([In] IntPtr hWnd);
 
         [DllImport("user32")]
         internal static extern IntPtr GetForegroundWindow();
