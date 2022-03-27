@@ -59,5 +59,24 @@ namespace OpenCirnix.Lite.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   System.Byte[] 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static byte[] Cirnix {
+            get {
+                object obj = ResourceManager.GetObject("Cirnix", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.IO.MemoryStream과(와) 유사한 System.IO.UnmanagedMemoryStream 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Max {
+            get {
+                return ResourceManager.GetStream("Max", resourceCulture);
+            }
+        }
     }
 }

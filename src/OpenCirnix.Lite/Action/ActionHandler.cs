@@ -42,6 +42,20 @@ namespace OpenCirnix.Lite
             return true;
         }
 
+        public static bool CheckMember(int maxCount)
+        {
+            if (CheckMemberAction.IsRunning)
+            {
+                ChatAction.SendMsg(true, $"[ 인원 알림 ] 해제.");
+                CheckMemberAction.CancelAsync();
+                return false;
+            }
+
+            ChatAction.SendMsg(true, $"[ 인원 알림 ] 적용 : {maxCount}명 이상.");
+            CheckMemberAction.RunWorkerAsync(maxCount);
+            return true;
+        }
+
         public static async void MemoryOptimize()
         {
             if (await TrimProcessMemory(0))

@@ -76,6 +76,53 @@ namespace OpenCirnix.Lite
             SelectPath();
         }
 
+        private void checkBox_window_CheckedChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox_path.Text))
+            {
+                SelectPath();
+            }
+
+            string path = textBox_path.Text;
+            if (string.IsNullOrWhiteSpace(path)) return;
+        }
+
+        private void checkBox_viewSpeed_CheckedChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox_path.Text))
+            {
+                SelectPath();
+            }
+
+            string path = textBox_path.Text;
+            if (string.IsNullOrWhiteSpace(path)) return;
+
+            WriteMixFile();
+
+            if (GameModule.InitWarcraft3Info() == WarcraftState.OK || GameModule.WarcraftCheck())
+            {
+                MessageBoxUtil.Info("워크래프트를 재시작해야 적용 됩니다.");
+            }
+        }
+
+        private void checkBox_viewManaBar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox_path.Text))
+            {
+                SelectPath();
+            }
+
+            string path = textBox_path.Text;
+            if (string.IsNullOrWhiteSpace(path)) return;
+
+            WriteMixFile();
+
+            if (GameModule.InitWarcraft3Info() == WarcraftState.OK || GameModule.WarcraftCheck())
+            {
+                MessageBoxUtil.Info("워크래프트를 재시작해야 적용 됩니다.");
+            }
+        }
+
         private void button_start_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBox_path.Text))
@@ -85,6 +132,8 @@ namespace OpenCirnix.Lite
 
             string path = textBox_path.Text;
             if (string.IsNullOrWhiteSpace(path)) return;
+
+            WriteMixFile();
 
             bool isWindow = checkBox_window.Checked;
             try
@@ -97,7 +146,7 @@ namespace OpenCirnix.Lite
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBoxUtil.Error(ex.Message);
             }
         }
 
@@ -110,6 +159,12 @@ namespace OpenCirnix.Lite
         private void button_autoRG_Click(object sender, EventArgs e)
         {
             ToggleAutoRG();
+        }
+
+        private void button_checkMember_Click(object sender, EventArgs e)
+        {
+            int maxCount = (int) numericUpDown_maxCount.Value;
+            CheckMember(maxCount);
         }
 
         private void button_speedStarter_Click(object sender, EventArgs e)
@@ -151,14 +206,14 @@ namespace OpenCirnix.Lite
         {
             if (checkBox_mapping.Checked)
             {
-                Height = 475;
+                Height = 520;
                 button_mappingSetting.Enabled = true;
                 ActionHandler.StartKeyMapping();
                 WriteLog("[ 키 맵핑 후킹 ] 시작.");
             }
             else
             {
-                Height = 285;
+                Height = 335;
                 button_mappingSetting.Enabled = false;
                 ActionHandler.StopKeyMapping();
                 WriteLog("[ 키 맵핑 후킹 ] 종료.");
@@ -189,8 +244,7 @@ namespace OpenCirnix.Lite
 
             if (KeyMappingAction.HasMapping(e.KeyCode))
             {
-                string msg = "이미 지정된 키 맵핑 입니다.";
-                MessageBox.Show(msg, "OpenCirnix.Lite", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                MessageBoxUtil.Error("이미 지정된 키 맵핑 입니다.");
                 return;
             }
 
@@ -240,8 +294,11 @@ namespace OpenCirnix.Lite
             var setting = Setting.Load();
             if (setting == null) return;
 
-            checkBox_window.Checked = setting.IsWindowMode;
             textBox_path.Text = setting.Path;
+
+            checkBox_window.Checked = setting.IsWindowMode;
+            checkBox_viewSpeed.Checked = setting.IsViewSpeed;
+            checkBox_viewManaBar.Checked = setting.IsViewManaBer;
 
             int idx = 1;
             foreach (var mapping in setting.KeyMappings)
@@ -276,6 +333,8 @@ namespace OpenCirnix.Lite
             var setting = new Setting()
             {
                 IsWindowMode = checkBox_window.Checked,
+                IsViewSpeed = checkBox_viewSpeed.Checked,
+                IsViewManaBer = checkBox_viewManaBar.Checked,
                 Path = textBox_path.Text,
                 IsUseKeyMapping = checkBox_mapping.Checked,
                 KeyMappings = KeyMappingAction.GetMappings(),
@@ -312,6 +371,7 @@ namespace OpenCirnix.Lite
             {
                 _initializedWarcraft = false;
                 AutoRGAction.CancelAsync();
+                CheckMemberAction.CancelAsync();
 
                 await Task.Delay(800);
                 return true;
@@ -338,7 +398,7 @@ namespace OpenCirnix.Lite
             return false;
         }
 
-        private async void StatusCheck()
+        private void StatusCheck()
         {
             if (_waitGameStart)
             {
@@ -346,6 +406,7 @@ namespace OpenCirnix.Lite
 
                 _waitGameStart = false;
                 AutoRGAction.CancelAsync();
+                CheckMemberAction.CancelAsync();
             }
             else
             {
@@ -361,8 +422,7 @@ namespace OpenCirnix.Lite
                 _waitGameStart = true;
 
                 AutoRGAction.CancelAsync();
-                await Task.Delay(500);
-                ActionHandler.SetGameDelay(550);
+                CheckMemberAction.CancelAsync();
             }
         }
 
@@ -406,6 +466,15 @@ namespace OpenCirnix.Lite
                 }
                 SetGameDelay(delay);
             }
+            if (command == "max" || command == "ㅡㅁㅌ")
+            {
+                int maxCount = 0;
+                if (args.Length >= 2)
+                {
+                    int.TryParse(args[1], out maxCount);
+                }
+                CheckMember(maxCount);
+            }
             else if (command == "rg" || command == "ㄱㅎ")
             {
                 ToggleAutoRG();
@@ -439,15 +508,26 @@ namespace OpenCirnix.Lite
         {
             if (ActionHandler.SetGameDelay(delay))
             {
-                WriteLog($"[ 게임 딜레이 ] 적용 {delay} ms.");
+                WriteLog($"[ 게임 딜레이 ] 적용 : {delay} ms.");
             }
         }
 
         private void ToggleAutoRG()
         {
+            if (GameModule.InitWarcraft3Info() != WarcraftState.OK || !GameModule.WarcraftCheck()) return;
+
             var result = ActionHandler.ToggleAutoRG();
             if (result) WriteLog("[ 자동 새로고침 ] 적용.");
             else WriteLog("[ 자동 새로고침 ] 해제.");
+        }
+
+        private void CheckMember(int maxCount)
+        {
+            if (GameModule.InitWarcraft3Info() != WarcraftState.OK || !GameModule.WarcraftCheck()) return;
+
+            var result = ActionHandler.CheckMember(maxCount);
+            if (result) WriteLog($"[ 인원 알림 ] 적용 : {maxCount}명 이상.");
+            else WriteLog("[ 인원 알림 ] 해제.");
         }
 
         private void SetSpeedStarter()
@@ -466,10 +546,31 @@ namespace OpenCirnix.Lite
         {
             using (var ofd = new OpenFileDialog())
             {
+                ofd.Title = "워크래프트 실행파일 선택";
                 ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                 if (ofd.ShowDialog() != DialogResult.OK) return;
 
                 textBox_path.Text = ofd.FileName;
+            }
+        }
+
+        private void WriteMixFile()
+        {
+            if (string.IsNullOrWhiteSpace(textBox_path.Text)) return;
+
+            var sb = new StringBuilder();
+            sb.AppendLine("[Cirnix]");
+            sb.AppendLine($"Mana Bar={(checkBox_viewManaBar.Checked ? 1 : 0)}");
+            sb.AppendLine($"Show AS & MS in Number={(checkBox_viewSpeed.Checked ? 1 : 0)}");
+
+            string dirPath = Path.GetDirectoryName(textBox_path.Text);
+            string iniFilePath = Path.Combine(dirPath, "Cirnix.ini");
+            File.WriteAllText(iniFilePath, sb.ToString());
+
+            string mixFilePath = Path.Combine(dirPath, "Cirnix.mix");
+            if (!File.Exists(mixFilePath))
+            {
+                File.WriteAllBytes(mixFilePath, Properties.Resources.Cirnix);
             }
         }
 
@@ -540,9 +641,7 @@ namespace OpenCirnix.Lite
                 string fileName = url.Substring(idx + 1);
                 string savePath = Path.Combine(Application.StartupPath, fileName);
 
-                string msg = "Find new version.\r\nAre you download ner version ?";
-                var dr = MessageBox.Show(msg, "OpenCirnix.Lite", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (dr != DialogResult.OK) return false;
+                if (!MessageBoxUtil.Confirm("Find new version.\r\nAre you download new version ?")) return false;
 
                 var proc = new Process();
                 proc.StartInfo.FileName = filePath;
