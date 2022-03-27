@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action\Action.CheckMember.cs" />
     <Compile Include="Action\Action.KeyMapping.cs" />
     <Compile Include="Action\Action.AutoRG.cs" />
     <Compile Include="Action\Action.StartDelay.cs" />
@@ -69,6 +70,8 @@
     <Compile Include="Control\TabDisableTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Util\SoundUtil.cs" />
+    <Compile Include="Util\MessageBoxUtil.cs" />
     <Compile Include="Warcraft\GameModule.cs" />
     <Compile Include="Global\HangWatchdog.cs" />
     <Compile Include="Control\MainForm.cs">
@@ -107,9 +110,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\Cirnix.mix" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Max.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

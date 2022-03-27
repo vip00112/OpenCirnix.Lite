@@ -20,6 +20,10 @@ namespace OpenCirnix.Lite
 
         public bool IsWindowMode { get; set; }
 
+        public bool IsViewSpeed { get; set; }
+
+        public bool IsViewManaBer { get; set; }
+
         public string Path { get; set; }
 
         public bool IsUseKeyMapping { get; set; } = true;

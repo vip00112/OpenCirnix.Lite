@@ -36,7 +36,7 @@ namespace OpenCirnix.Lite
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "OpenCirnix.Lite", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                    MessageBoxUtil.Error(ex.Message);
                 }
                 return;
             }
