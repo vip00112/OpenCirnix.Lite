@@ -17,6 +17,7 @@ namespace OpenCirnix.Lite
 {
     public partial class MainForm : Form
     {
+        private bool _loadedSetting;
         private bool _initializedWarcraft;
         private bool _waitGameStart;
         private bool _waitLobby;
@@ -53,6 +54,7 @@ namespace OpenCirnix.Lite
         {
             // 설정 로드
             LoadSetting();
+            _loadedSetting = true;
 
             // 워크 감지 시작
             _bw.RunWorkerAsync();
@@ -101,9 +103,12 @@ namespace OpenCirnix.Lite
 
             WriteMixFile(path);
 
-            if (GameModule.InitWarcraft3Info() == WarcraftState.OK || GameModule.WarcraftCheck())
+            if (_loadedSetting)
             {
-                MessageBoxUtil.Info("워크래프트를 재시작해야 적용 됩니다.");
+                if (GameModule.InitWarcraft3Info() == WarcraftState.OK || GameModule.WarcraftCheck())
+                {
+                    MessageBoxUtil.Info("워크래프트를 재시작해야 적용 됩니다.");
+                }
             }
         }
 
@@ -119,9 +124,12 @@ namespace OpenCirnix.Lite
 
             WriteMixFile(path);
 
-            if (GameModule.InitWarcraft3Info() == WarcraftState.OK || GameModule.WarcraftCheck())
+            if (_loadedSetting)
             {
-                MessageBoxUtil.Info("워크래프트를 재시작해야 적용 됩니다.");
+                if (GameModule.InitWarcraft3Info() == WarcraftState.OK || GameModule.WarcraftCheck())
+                {
+                    MessageBoxUtil.Info("워크래프트를 재시작해야 적용 됩니다.");
+                }
             }
         }
 
