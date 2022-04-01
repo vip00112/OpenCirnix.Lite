@@ -45,6 +45,8 @@ namespace OpenCirnix.Lite
                 fi.CopyTo(filePath, true);
                 fi.Delete();
             }
+
+            Text = $"{Text} - ver {Assembly.GetExecutingAssembly().GetName().Version}";
         }
 
         private async void MainForm_Shown(object sender, EventArgs e)
@@ -97,7 +99,7 @@ namespace OpenCirnix.Lite
             string path = textBox_path.Text;
             if (string.IsNullOrWhiteSpace(path)) return;
 
-            WriteMixFile();
+            WriteMixFile(path);
 
             if (GameModule.InitWarcraft3Info() == WarcraftState.OK || GameModule.WarcraftCheck())
             {
@@ -115,7 +117,7 @@ namespace OpenCirnix.Lite
             string path = textBox_path.Text;
             if (string.IsNullOrWhiteSpace(path)) return;
 
-            WriteMixFile();
+            WriteMixFile(path);
 
             if (GameModule.InitWarcraft3Info() == WarcraftState.OK || GameModule.WarcraftCheck())
             {
@@ -133,7 +135,7 @@ namespace OpenCirnix.Lite
             string path = textBox_path.Text;
             if (string.IsNullOrWhiteSpace(path)) return;
 
-            WriteMixFile();
+            WriteMixFile(path);
 
             bool isWindow = checkBox_window.Checked;
             try
@@ -294,11 +296,13 @@ namespace OpenCirnix.Lite
             var setting = Setting.Load();
             if (setting == null) return;
 
-            textBox_path.Text = setting.Path;
-
-            checkBox_window.Checked = setting.IsWindowMode;
-            checkBox_viewSpeed.Checked = setting.IsViewSpeed;
-            checkBox_viewManaBar.Checked = setting.IsViewManaBer;
+            if (File.Exists(setting.Path))
+            {
+                textBox_path.Text = setting.Path;
+                checkBox_window.Checked = setting.IsWindowMode;
+                checkBox_viewSpeed.Checked = setting.IsViewSpeed;
+                checkBox_viewManaBar.Checked = setting.IsViewManaBer;
+            }
 
             int idx = 1;
             foreach (var mapping in setting.KeyMappings)
@@ -554,9 +558,10 @@ namespace OpenCirnix.Lite
             }
         }
 
-        private void WriteMixFile()
+        private void WriteMixFile(string filePath)
         {
-            if (string.IsNullOrWhiteSpace(textBox_path.Text)) return;
+            if (string.IsNullOrWhiteSpace(filePath)) return;
+            if (!File.Exists(filePath)) return;
 
             var sb = new StringBuilder();
             sb.AppendLine("[Cirnix]");
