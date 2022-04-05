@@ -16,6 +16,7 @@ namespace OpenCirnix.Lite
         public Setting()
         {
             KeyMappings = new List<KeyMapping>();
+            BanedUsers = new List<User>();
         }
 
         public bool IsWindowMode { get; set; }
@@ -29,6 +30,8 @@ namespace OpenCirnix.Lite
         public bool IsUseKeyMapping { get; set; } = true;
 
         public List<KeyMapping> KeyMappings { get; set; }
+
+        public List<User> BanedUsers { get; set; }
 
         public static void Save(Setting setting)
         {

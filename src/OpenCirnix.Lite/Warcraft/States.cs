@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static OpenCirnix.Lite.MemoryEditor;
+using static OpenCirnix.Lite.WindowNative;
 
 namespace OpenCirnix.Lite
 {
@@ -35,6 +36,21 @@ namespace OpenCirnix.Lite
                     if (A == 0 && B == 0) return MusicState.Stopped;
                 }
                 return MusicState.None;
+            }
+        }
+
+        public static bool IsInRoomList
+        {
+            get
+            {
+                if (ChatAction.CEditBoxOffset != IntPtr.Zero)
+                {
+                    byte[] buffer = new byte[2];
+                    ReadProcessMemory(Warcraft3Info.Handle, ChatAction.CEditBoxOffset + 0x6E6, buffer, 2, out _);
+                    if (CompareArrays(buffer, ChatStartPattern, 2))
+                        return true;
+                }
+                return false;
             }
         }
 
