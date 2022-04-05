@@ -66,18 +66,6 @@ namespace OpenCirnix.Lite
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.groupBox_mapping = new System.Windows.Forms.GroupBox();
-            this.button_mappingSetting = new System.Windows.Forms.Button();
-            this.label31 = new System.Windows.Forms.Label();
-            this.checkBox_mapping = new System.Windows.Forms.CheckBox();
-            this.textBox_path = new System.Windows.Forms.TextBox();
-            this.checkBox_window = new System.Windows.Forms.CheckBox();
-            this.button_start = new System.Windows.Forms.Button();
-            this.checkBox_viewSpeed = new System.Windows.Forms.CheckBox();
-            this.checkBox_viewManaBar = new System.Windows.Forms.CheckBox();
-            this.numericUpDown_maxCount = new System.Windows.Forms.NumericUpDown();
-            this.button_checkMember = new System.Windows.Forms.Button();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
             this.textBox_mapping6 = new OpenCirnix.Lite.TabDisableTextBox();
             this.textBox_press1 = new OpenCirnix.Lite.TabDisableTextBox();
             this.textBox_mapping1 = new OpenCirnix.Lite.TabDisableTextBox();
@@ -98,6 +86,20 @@ namespace OpenCirnix.Lite
             this.textBox_mapping9 = new OpenCirnix.Lite.TabDisableTextBox();
             this.textBox_press10 = new OpenCirnix.Lite.TabDisableTextBox();
             this.textBox_mapping10 = new OpenCirnix.Lite.TabDisableTextBox();
+            this.button_mappingSetting = new System.Windows.Forms.Button();
+            this.label31 = new System.Windows.Forms.Label();
+            this.checkBox_mapping = new System.Windows.Forms.CheckBox();
+            this.textBox_path = new System.Windows.Forms.TextBox();
+            this.checkBox_window = new System.Windows.Forms.CheckBox();
+            this.button_start = new System.Windows.Forms.Button();
+            this.checkBox_viewSpeed = new System.Windows.Forms.CheckBox();
+            this.checkBox_viewManaBar = new System.Windows.Forms.CheckBox();
+            this.numericUpDown_maxCount = new System.Windows.Forms.NumericUpDown();
+            this.button_checkMember = new System.Windows.Forms.Button();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.button_ban = new System.Windows.Forms.Button();
+            this.label34 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_delay)).BeginInit();
             this.groupBox_mapping.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_maxCount)).BeginInit();
@@ -535,146 +537,6 @@ namespace OpenCirnix.Lite
             this.groupBox_mapping.TabStop = false;
             this.groupBox_mapping.Text = "키 맵핑";
             // 
-            // button_mappingSetting
-            // 
-            this.button_mappingSetting.Location = new System.Drawing.Point(268, 267);
-            this.button_mappingSetting.Name = "button_mappingSetting";
-            this.button_mappingSetting.Size = new System.Drawing.Size(100, 23);
-            this.button_mappingSetting.TabIndex = 12;
-            this.button_mappingSetting.Text = "키 맵핑 편집";
-            this.button_mappingSetting.UseVisualStyleBackColor = true;
-            this.button_mappingSetting.Click += new System.EventHandler(this.button_mappingSetting_Click);
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(14, 460);
-            this.label31.Margin = new System.Windows.Forms.Padding(5);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(445, 12);
-            this.label31.TabIndex = 4;
-            this.label31.Text = "※ 키 맵핑은 입력 키를(좌측) 누르면 인게임에서 맵핑 키가(우측) 적용되는 것 임.";
-            // 
-            // checkBox_mapping
-            // 
-            this.checkBox_mapping.AutoSize = true;
-            this.checkBox_mapping.Checked = true;
-            this.checkBox_mapping.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_mapping.Location = new System.Drawing.Point(12, 271);
-            this.checkBox_mapping.Name = "checkBox_mapping";
-            this.checkBox_mapping.Size = new System.Drawing.Size(92, 16);
-            this.checkBox_mapping.TabIndex = 11;
-            this.checkBox_mapping.Text = "키 맵핑 적용";
-            this.checkBox_mapping.UseVisualStyleBackColor = true;
-            this.checkBox_mapping.CheckedChanged += new System.EventHandler(this.checkBox_mapping_CheckedChanged);
-            // 
-            // textBox_path
-            // 
-            this.textBox_path.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox_path.Location = new System.Drawing.Point(12, 41);
-            this.textBox_path.Name = "textBox_path";
-            this.textBox_path.ReadOnly = true;
-            this.textBox_path.Size = new System.Drawing.Size(556, 21);
-            this.textBox_path.TabIndex = 0;
-            this.textBox_path.TabStop = false;
-            this.textBox_path.Click += new System.EventHandler(this.textBox_path_Click);
-            // 
-            // checkBox_window
-            // 
-            this.checkBox_window.AutoSize = true;
-            this.checkBox_window.Location = new System.Drawing.Point(118, 16);
-            this.checkBox_window.Name = "checkBox_window";
-            this.checkBox_window.Size = new System.Drawing.Size(60, 16);
-            this.checkBox_window.TabIndex = 1;
-            this.checkBox_window.Text = "창모드";
-            this.checkBox_window.UseVisualStyleBackColor = true;
-            this.checkBox_window.CheckedChanged += new System.EventHandler(this.checkBox_window_CheckedChanged);
-            // 
-            // button_start
-            // 
-            this.button_start.Location = new System.Drawing.Point(12, 12);
-            this.button_start.Name = "button_start";
-            this.button_start.Size = new System.Drawing.Size(100, 23);
-            this.button_start.TabIndex = 0;
-            this.button_start.Text = "실행";
-            this.button_start.UseVisualStyleBackColor = true;
-            this.button_start.Click += new System.EventHandler(this.button_start_Click);
-            // 
-            // checkBox_viewSpeed
-            // 
-            this.checkBox_viewSpeed.AutoSize = true;
-            this.checkBox_viewSpeed.Location = new System.Drawing.Point(184, 16);
-            this.checkBox_viewSpeed.Name = "checkBox_viewSpeed";
-            this.checkBox_viewSpeed.Size = new System.Drawing.Size(76, 16);
-            this.checkBox_viewSpeed.TabIndex = 2;
-            this.checkBox_viewSpeed.Text = "공속 표기";
-            this.checkBox_viewSpeed.UseVisualStyleBackColor = true;
-            this.checkBox_viewSpeed.CheckedChanged += new System.EventHandler(this.checkBox_viewSpeed_CheckedChanged);
-            // 
-            // checkBox_viewManaBar
-            // 
-            this.checkBox_viewManaBar.AutoSize = true;
-            this.checkBox_viewManaBar.Location = new System.Drawing.Point(266, 16);
-            this.checkBox_viewManaBar.Name = "checkBox_viewManaBar";
-            this.checkBox_viewManaBar.Size = new System.Drawing.Size(104, 16);
-            this.checkBox_viewManaBar.TabIndex = 3;
-            this.checkBox_viewManaBar.Text = "마나 막대 표기";
-            this.checkBox_viewManaBar.UseVisualStyleBackColor = true;
-            this.checkBox_viewManaBar.CheckedChanged += new System.EventHandler(this.checkBox_viewManaBar_CheckedChanged);
-            // 
-            // numericUpDown_maxCount
-            // 
-            this.numericUpDown_maxCount.Location = new System.Drawing.Point(268, 153);
-            this.numericUpDown_maxCount.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numericUpDown_maxCount.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown_maxCount.Name = "numericUpDown_maxCount";
-            this.numericUpDown_maxCount.Size = new System.Drawing.Size(100, 21);
-            this.numericUpDown_maxCount.TabIndex = 7;
-            this.numericUpDown_maxCount.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            // 
-            // button_checkMember
-            // 
-            this.button_checkMember.Location = new System.Drawing.Point(268, 180);
-            this.button_checkMember.Name = "button_checkMember";
-            this.button_checkMember.Size = new System.Drawing.Size(100, 23);
-            this.button_checkMember.TabIndex = 8;
-            this.button_checkMember.Text = "인원 알림";
-            this.button_checkMember.UseVisualStyleBackColor = true;
-            this.button_checkMember.Click += new System.EventHandler(this.button_checkMember_Click);
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label32.Location = new System.Drawing.Point(376, 185);
-            this.label32.Margin = new System.Windows.Forms.Padding(5);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(62, 12);
-            this.label32.TabIndex = 4;
-            this.label32.Text = "인원 알림";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(474, 185);
-            this.label33.Margin = new System.Windows.Forms.Padding(5);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(83, 12);
-            this.label33.TabIndex = 4;
-            this.label33.Text = "= !max 1 ~ 20";
-            // 
             // textBox_mapping6
             // 
             this.textBox_mapping6.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -920,11 +782,173 @@ namespace OpenCirnix.Lite
             this.textBox_mapping10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox_mapping10.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_mapping_KeyDown);
             // 
+            // button_mappingSetting
+            // 
+            this.button_mappingSetting.Location = new System.Drawing.Point(268, 267);
+            this.button_mappingSetting.Name = "button_mappingSetting";
+            this.button_mappingSetting.Size = new System.Drawing.Size(100, 23);
+            this.button_mappingSetting.TabIndex = 12;
+            this.button_mappingSetting.Text = "키 맵핑 편집";
+            this.button_mappingSetting.UseVisualStyleBackColor = true;
+            this.button_mappingSetting.Click += new System.EventHandler(this.button_mappingSetting_Click);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(14, 460);
+            this.label31.Margin = new System.Windows.Forms.Padding(5);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(445, 12);
+            this.label31.TabIndex = 4;
+            this.label31.Text = "※ 키 맵핑은 입력 키를(좌측) 누르면 인게임에서 맵핑 키가(우측) 적용되는 것 임.";
+            // 
+            // checkBox_mapping
+            // 
+            this.checkBox_mapping.AutoSize = true;
+            this.checkBox_mapping.Checked = true;
+            this.checkBox_mapping.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_mapping.Location = new System.Drawing.Point(12, 271);
+            this.checkBox_mapping.Name = "checkBox_mapping";
+            this.checkBox_mapping.Size = new System.Drawing.Size(92, 16);
+            this.checkBox_mapping.TabIndex = 11;
+            this.checkBox_mapping.Text = "키 맵핑 적용";
+            this.checkBox_mapping.UseVisualStyleBackColor = true;
+            this.checkBox_mapping.CheckedChanged += new System.EventHandler(this.checkBox_mapping_CheckedChanged);
+            // 
+            // textBox_path
+            // 
+            this.textBox_path.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox_path.Location = new System.Drawing.Point(12, 41);
+            this.textBox_path.Name = "textBox_path";
+            this.textBox_path.ReadOnly = true;
+            this.textBox_path.Size = new System.Drawing.Size(556, 21);
+            this.textBox_path.TabIndex = 0;
+            this.textBox_path.TabStop = false;
+            this.textBox_path.Click += new System.EventHandler(this.textBox_path_Click);
+            // 
+            // checkBox_window
+            // 
+            this.checkBox_window.AutoSize = true;
+            this.checkBox_window.Location = new System.Drawing.Point(118, 16);
+            this.checkBox_window.Name = "checkBox_window";
+            this.checkBox_window.Size = new System.Drawing.Size(60, 16);
+            this.checkBox_window.TabIndex = 1;
+            this.checkBox_window.Text = "창모드";
+            this.checkBox_window.UseVisualStyleBackColor = true;
+            this.checkBox_window.CheckedChanged += new System.EventHandler(this.checkBox_window_CheckedChanged);
+            // 
+            // button_start
+            // 
+            this.button_start.Location = new System.Drawing.Point(12, 12);
+            this.button_start.Name = "button_start";
+            this.button_start.Size = new System.Drawing.Size(100, 23);
+            this.button_start.TabIndex = 0;
+            this.button_start.Text = "실행";
+            this.button_start.UseVisualStyleBackColor = true;
+            this.button_start.Click += new System.EventHandler(this.button_start_Click);
+            // 
+            // checkBox_viewSpeed
+            // 
+            this.checkBox_viewSpeed.AutoSize = true;
+            this.checkBox_viewSpeed.Location = new System.Drawing.Point(184, 16);
+            this.checkBox_viewSpeed.Name = "checkBox_viewSpeed";
+            this.checkBox_viewSpeed.Size = new System.Drawing.Size(76, 16);
+            this.checkBox_viewSpeed.TabIndex = 2;
+            this.checkBox_viewSpeed.Text = "공속 표기";
+            this.checkBox_viewSpeed.UseVisualStyleBackColor = true;
+            this.checkBox_viewSpeed.CheckedChanged += new System.EventHandler(this.checkBox_viewSpeed_CheckedChanged);
+            // 
+            // checkBox_viewManaBar
+            // 
+            this.checkBox_viewManaBar.AutoSize = true;
+            this.checkBox_viewManaBar.Location = new System.Drawing.Point(266, 16);
+            this.checkBox_viewManaBar.Name = "checkBox_viewManaBar";
+            this.checkBox_viewManaBar.Size = new System.Drawing.Size(104, 16);
+            this.checkBox_viewManaBar.TabIndex = 3;
+            this.checkBox_viewManaBar.Text = "마나 막대 표기";
+            this.checkBox_viewManaBar.UseVisualStyleBackColor = true;
+            this.checkBox_viewManaBar.CheckedChanged += new System.EventHandler(this.checkBox_viewManaBar_CheckedChanged);
+            // 
+            // numericUpDown_maxCount
+            // 
+            this.numericUpDown_maxCount.Location = new System.Drawing.Point(268, 153);
+            this.numericUpDown_maxCount.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numericUpDown_maxCount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_maxCount.Name = "numericUpDown_maxCount";
+            this.numericUpDown_maxCount.Size = new System.Drawing.Size(100, 21);
+            this.numericUpDown_maxCount.TabIndex = 7;
+            this.numericUpDown_maxCount.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            // 
+            // button_checkMember
+            // 
+            this.button_checkMember.Location = new System.Drawing.Point(268, 180);
+            this.button_checkMember.Name = "button_checkMember";
+            this.button_checkMember.Size = new System.Drawing.Size(100, 23);
+            this.button_checkMember.TabIndex = 8;
+            this.button_checkMember.Text = "인원 알림";
+            this.button_checkMember.UseVisualStyleBackColor = true;
+            this.button_checkMember.Click += new System.EventHandler(this.button_checkMember_Click);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label32.Location = new System.Drawing.Point(376, 185);
+            this.label32.Margin = new System.Windows.Forms.Padding(5);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(62, 12);
+            this.label32.TabIndex = 4;
+            this.label32.Text = "인원 알림";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(474, 185);
+            this.label33.Margin = new System.Windows.Forms.Padding(5);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(83, 12);
+            this.label33.TabIndex = 4;
+            this.label33.Text = "= !max 1 ~ 20";
+            // 
+            // button_ban
+            // 
+            this.button_ban.Location = new System.Drawing.Point(449, 12);
+            this.button_ban.Name = "button_ban";
+            this.button_ban.Size = new System.Drawing.Size(75, 23);
+            this.button_ban.TabIndex = 0;
+            this.button_ban.TabStop = false;
+            this.button_ban.Text = "밴리스트";
+            this.button_ban.UseVisualStyleBackColor = true;
+            this.button_ban.Click += new System.EventHandler(this.button_ban_Click);
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(532, 17);
+            this.label34.Margin = new System.Windows.Forms.Padding(5);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(36, 12);
+            this.label34.TabIndex = 4;
+            this.label34.Text = "= !wa";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 481);
+            this.ClientSize = new System.Drawing.Size(584, 481);
+            this.Controls.Add(this.button_ban);
             this.Controls.Add(this.checkBox_viewManaBar);
             this.Controls.Add(this.button_start);
             this.Controls.Add(this.checkBox_viewSpeed);
@@ -935,6 +959,7 @@ namespace OpenCirnix.Lite
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.label34);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label6);
@@ -1044,6 +1069,8 @@ namespace OpenCirnix.Lite
         private System.Windows.Forms.Button button_checkMember;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Button button_ban;
+        private System.Windows.Forms.Label label34;
     }
 }
 

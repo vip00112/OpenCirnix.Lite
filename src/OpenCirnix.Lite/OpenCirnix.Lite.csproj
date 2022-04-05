@@ -56,12 +56,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action\Action.UserList.cs" />
     <Compile Include="Action\Action.CheckMember.cs" />
     <Compile Include="Action\Action.KeyMapping.cs" />
     <Compile Include="Action\Action.AutoRG.cs" />
     <Compile Include="Action\Action.StartDelay.cs" />
     <Compile Include="Action\Action.GameDelay.cs" />
     <Compile Include="Action\ActionHandler.cs" />
+    <Compile Include="Control\BanListRegisterDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Control\BanListRegisterDialog.Designer.cs">
+      <DependentUpon>BanListRegisterDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\BanListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Control\BanListForm.Designer.cs">
+      <DependentUpon>BanListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global\GithubJsonContainer.cs" />
     <Compile Include="Global\Setting.cs" />
     <Compile Include="Global\GithubUtil.cs" />
@@ -86,6 +99,13 @@
     <Compile Include="Warcraft\States.cs" />
     <Compile Include="Global\Structures.cs" />
     <Compile Include="Global\WindowNative.cs" />
+    <Compile Include="Warcraft\User.cs" />
+    <EmbeddedResource Include="Control\BanListRegisterDialog.resx">
+      <DependentUpon>BanListRegisterDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\BanListForm.resx">
+      <DependentUpon>BanListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Control\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

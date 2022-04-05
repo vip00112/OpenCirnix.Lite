@@ -56,10 +56,10 @@ namespace OpenCirnix.Lite
     {
         None = 0,
         Offline = 1,
-        BattleNet = 2,
-        InGameDefault = 3,
-        InGameCustom = 4,
-        Stopped = 5
+        BattleNet = 2, // 로비, 대기실, 맵로딩중
+        InGameDefault = 3, // 게임중
+        InGameCustom = 4, // 게임 결과 화면
+        Stopped = 5 // 맵 로딩 완료
     }
 
     public enum CommandTag
@@ -77,5 +77,10 @@ namespace OpenCirnix.Lite
         Control = 2,
         Shift = 4,
         Windows = 8
+    }
+
+    public enum ScreenState
+    {
+        None, InLobbyOrRoom, InWaitRoom, InGame
     }
 }

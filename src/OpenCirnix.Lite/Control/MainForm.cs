@@ -17,10 +17,9 @@ namespace OpenCirnix.Lite
 {
     public partial class MainForm : Form
     {
-        private bool _loadedSetting;
+        private bool _isLoadedSetting;
         private bool _initializedWarcraft;
-        private bool _waitGameStart;
-        private bool _waitLobby;
+        private ScreenState _status;
         private BackgroundWorker _bw;
 
         #region Constructor
@@ -54,7 +53,7 @@ namespace OpenCirnix.Lite
         {
             // 설정 로드
             LoadSetting();
-            _loadedSetting = true;
+            _isLoadedSetting = true;
 
             // 워크 감지 시작
             _bw.RunWorkerAsync();
@@ -103,7 +102,7 @@ namespace OpenCirnix.Lite
 
             WriteMixFile(path);
 
-            if (_loadedSetting)
+            if (_isLoadedSetting)
             {
                 if (GameModule.InitWarcraft3Info() == WarcraftState.OK || GameModule.WarcraftCheck())
                 {
@@ -124,7 +123,7 @@ namespace OpenCirnix.Lite
 
             WriteMixFile(path);
 
-            if (_loadedSetting)
+            if (_isLoadedSetting)
             {
                 if (GameModule.InitWarcraft3Info() == WarcraftState.OK || GameModule.WarcraftCheck())
                 {
@@ -160,6 +159,23 @@ namespace OpenCirnix.Lite
             }
         }
 
+        private void button_ban_Click(object sender, EventArgs e)
+        {
+            BanListForm form = null;
+            foreach (var openForm in Application.OpenForms)
+            {
+                if (openForm is BanListForm)
+                {
+                    form = openForm as BanListForm;
+                    break;
+                }
+            }
+            if (form == null) form = new BanListForm();
+
+            form.Show();
+            form.Activate();
+        }
+
         private void button_gameDelay_Click(object sender, EventArgs e)
         {
             int delay = (int) numericUpDown_delay.Value;
@@ -184,7 +200,7 @@ namespace OpenCirnix.Lite
 
         private void button_memory_Click(object sender, EventArgs e)
         {
-            StartMemoryOptimize();
+            MemoryOptimize();
         }
 
         private void button_mappingSetting_Click(object sender, EventArgs e)
@@ -338,6 +354,12 @@ namespace OpenCirnix.Lite
                 ActionHandler.StartKeyMapping();
                 WriteLog("[ 키 맵핑 후킹 ] 시작.");
             }
+
+            if (setting.BanedUsers != null)
+            {
+                var banedUsers = setting.BanedUsers;
+                banedUsers.ForEach(o => ActionHandler.UpdateBanList(o));
+            }
         }
 
         private void SaveSetting()
@@ -350,6 +372,7 @@ namespace OpenCirnix.Lite
                 Path = textBox_path.Text,
                 IsUseKeyMapping = checkBox_mapping.Checked,
                 KeyMappings = KeyMappingAction.GetMappings(),
+                BanedUsers = UserListAction.BanedUsers.ToList(),
             };
             Setting.Save(setting);
         }
@@ -358,8 +381,31 @@ namespace OpenCirnix.Lite
         {
             try
             {
-                if (await ProcessCheck()) return;
+                // 워3 실행중 확인
+                if (IsNotStartedWarcraft3())
+                {
+                    await Task.Delay(500);
+                    return;
+                }
 
+                // 최초 셋팅
+                if (!_initializedWarcraft)
+                {
+                    _initializedWarcraft = true;
+                    WriteLog("실행중인 워크래프트 3 발견.");
+                    await Task.Delay(2000);
+
+                    Warcraft3Info.Refresh();
+                    GameModule.GetOffset();
+                    await Task.Delay(500);
+
+                    ChatAction.SendMsg(true, " * 치르닉스 라이트 시작. * ");
+                    SetSpeedStarter();
+                }
+
+                StatusCheck();
+
+                // 채팅 입력 확인
                 string message = ChatAction.GetMessage();
                 if (string.IsNullOrEmpty(message)) return;
 
@@ -377,64 +423,47 @@ namespace OpenCirnix.Lite
             _bw.RunWorkerAsync();
         }
 
-        private async Task<bool> ProcessCheck()
+        private bool IsNotStartedWarcraft3()
         {
             if (GameModule.InitWarcraft3Info() != WarcraftState.OK || !GameModule.WarcraftCheck())
             {
+                _status = ScreenState.None;
                 _initializedWarcraft = false;
                 AutoRGAction.CancelAsync();
                 CheckMemberAction.CancelAsync();
-
-                await Task.Delay(800);
                 return true;
             }
-
-            if (!_initializedWarcraft)
-            {
-                WriteLog("실행중인 워크래프트 3 발견.");
-                _initializedWarcraft = true;
-                await Task.Delay(2000);
-
-                Warcraft3Info.Refresh();
-                GameModule.GetOffset();
-
-                ChatAction.SendMsg(true, " * 치르닉스 라이트 시작. * ");
-                await Task.Delay(500);
-
-                ActionHandler.SetStartSpeed();
-                WriteLog("[ 빠른 게임시작 ] 적용.");
-            }
-
-            StatusCheck();
-
             return false;
         }
 
         private void StatusCheck()
         {
-            if (_waitGameStart)
+            switch (_status)
             {
-                if (!ChatAction.GetSelectedReceiveStatus()) return;
+                case ScreenState.None:
+                case ScreenState.InGame:
+                    if (States.CurrentMusicState == MusicState.BattleNet)
+                    {
+                        WriteLog("로비/대기실 입장.");
+                        _status = ScreenState.InLobbyOrRoom;
+                        Warcraft3Info.Refresh();
 
-                _waitGameStart = false;
-                AutoRGAction.CancelAsync();
-                CheckMemberAction.CancelAsync();
-            }
-            else
-            {
-                if (!_waitLobby && States.CurrentMusicState == MusicState.BattleNet)
-                {
-                    _waitLobby = true;
-                    Warcraft3Info.Refresh();
-                }
+                        AutoRGAction.CancelAsync();
+                        CheckMemberAction.CancelAsync();
+                    }
+                    break;
+                case ScreenState.InLobbyOrRoom:
+                    if (!ChatAction.GetSelectedReceiveStatus()) return;
 
-                if (!_waitLobby || GameDelayAction.GameDelay != 100) return;
+                    if (States.IsInGame)
+                    {
+                        WriteLog("게임 입장.");
+                        _status = ScreenState.InGame;
 
-                _waitLobby = false;
-                _waitGameStart = true;
-
-                AutoRGAction.CancelAsync();
-                CheckMemberAction.CancelAsync();
+                        AutoRGAction.CancelAsync();
+                        CheckMemberAction.CancelAsync();
+                    }
+                    break;
             }
         }
 
@@ -497,7 +526,11 @@ namespace OpenCirnix.Lite
             }
             else if (command == "mm" || command == "ㅡㅡ")
             {
-                StartMemoryOptimize();
+                MemoryOptimize();
+            }
+            else if (command == "wa" || command == "ㅈㅁ")
+            {
+                CheckBanList();
             }
             States.UserState = CommandTag.None;
         }
@@ -527,6 +560,7 @@ namespace OpenCirnix.Lite
         private void ToggleAutoRG()
         {
             if (GameModule.InitWarcraft3Info() != WarcraftState.OK || !GameModule.WarcraftCheck()) return;
+            if (States.IsInGame) return;
 
             var result = ActionHandler.ToggleAutoRG();
             if (result) WriteLog("[ 자동 새로고침 ] 적용.");
@@ -536,6 +570,7 @@ namespace OpenCirnix.Lite
         private void CheckMember(int maxCount)
         {
             if (GameModule.InitWarcraft3Info() != WarcraftState.OK || !GameModule.WarcraftCheck()) return;
+            if (States.IsInGame) return;
 
             var result = ActionHandler.CheckMember(maxCount);
             if (result) WriteLog($"[ 인원 알림 ] 적용 : {maxCount}명 이상.");
@@ -548,10 +583,28 @@ namespace OpenCirnix.Lite
             WriteLog("[ 빠른 게임시작 ] 적용.");
         }
 
-        private void StartMemoryOptimize()
+        private void MemoryOptimize()
         {
             ActionHandler.MemoryOptimize();
             WriteLog("[ 메모리 정리 ] 시작.");
+        }
+
+        private void CheckBanList()
+        {
+            var users = ActionHandler.GetUsers();
+            var banedUsers = UserListAction.BanedUsers.ToList();
+            int foundCount = 0;
+            foreach (var user in users)
+            {
+                var baned = banedUsers.FirstOrDefault(o => o.IsMatch(user.Name, user.Ip));
+                if (baned != null)
+                {
+                    foundCount++;
+                    ChatAction.SendMsg(true, $"[ 발견 ] {baned.Name} ({baned.Ip}) : {baned.Reason}");
+                }
+            }
+
+            ChatAction.SendMsg(true, $"[ 밴리스트 ] {users.Count}명 중 {foundCount}명 검거 완료.");
         }
 
         private void SelectPath()

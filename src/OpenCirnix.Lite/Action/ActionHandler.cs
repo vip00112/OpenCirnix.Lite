@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using static OpenCirnix.Lite.MemoryEditor;
@@ -17,9 +18,13 @@ namespace OpenCirnix.Lite
                 return false;
             }
 
-            ChatAction.SendMsg(true, $"[ 게임 딜레이 ] 적용 :{(States.IsHostPlayer ? " [Host]" : string.Empty)} {delay} ms.");
-            if (States.IsInGame) GameDelayAction.GameDelay = delay;
-            return true;
+            if (States.IsInGame)
+            {
+                ChatAction.SendMsg(true, $"[ 게임 딜레이 ] 적용 :{(States.IsHostPlayer ? " [Host]" : string.Empty)} {delay} ms.");
+                GameDelayAction.GameDelay = delay;
+                return true;
+            }
+            return false;
         }
 
         public static void SetStartSpeed()
@@ -74,6 +79,40 @@ namespace OpenCirnix.Lite
         public static void StopKeyMapping()
         {
             KeyMappingAction.EndHook();
+        }
+
+        public static List<User> GetUsers()
+        {
+            return UserListAction.FindUserList();
+        }
+
+        public static void UpdateBanList(User user)
+        {
+            if (user == null) return;
+
+            var banedUsers = UserListAction.BanedUsers.ToList();
+            var baned = banedUsers.FirstOrDefault(o => o.IsMatch(user.Name, user.Ip));
+            if (baned != null)
+            {
+                if (user.Ip != User.AnyIp) baned.Ip = user.Ip;
+                if (!string.IsNullOrWhiteSpace(user.Reason)) baned.Reason = user.Reason;
+            }
+            else
+            {
+                UserListAction.BanedUsers.Add(user);
+            }
+        }
+
+        public static void DeleteBanList(User user)
+        {
+            if (user == null) return;
+
+            var banedUsers = UserListAction.BanedUsers.ToList();
+            var baned = banedUsers.FirstOrDefault(o => o.IsMatch(user.Name, user.Ip));
+            if (baned != null)
+            {
+                UserListAction.BanedUsers.Remove(baned);
+            }
         }
 
         private static string ConvertSize(double size)
