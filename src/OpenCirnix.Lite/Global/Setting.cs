@@ -27,6 +27,8 @@ namespace OpenCirnix.Lite
 
         public string Path { get; set; }
 
+        public int GameDelay { get; set; }
+
         public bool IsUseKeyMapping { get; set; } = true;
 
         public List<KeyMapping> KeyMappings { get; set; }

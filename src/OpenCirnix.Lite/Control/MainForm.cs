@@ -328,6 +328,11 @@ namespace OpenCirnix.Lite
                 checkBox_viewManaBar.Checked = setting.IsViewManaBer;
             }
 
+            if (setting.GameDelay >= numericUpDown_delay.Minimum && setting.GameDelay <= numericUpDown_delay.Maximum)
+            {
+                numericUpDown_delay.Value = setting.GameDelay;
+            }
+
             int idx = 1;
             foreach (var mapping in setting.KeyMappings)
             {
@@ -370,6 +375,7 @@ namespace OpenCirnix.Lite
                 IsViewSpeed = checkBox_viewSpeed.Checked,
                 IsViewManaBer = checkBox_viewManaBar.Checked,
                 Path = textBox_path.Text,
+                GameDelay = (int) numericUpDown_delay.Value,
                 IsUseKeyMapping = checkBox_mapping.Checked,
                 KeyMappings = KeyMappingAction.GetMappings(),
                 BanedUsers = UserListAction.BanedUsers.ToList(),
@@ -448,6 +454,7 @@ namespace OpenCirnix.Lite
                         _status = ScreenState.InLobbyOrRoom;
                         Warcraft3Info.Refresh();
 
+                        GameDelayAction.GameDelay = 100;
                         AutoRGAction.CancelAsync();
                         CheckMemberAction.CancelAsync();
                     }
@@ -460,6 +467,12 @@ namespace OpenCirnix.Lite
                         WriteLog("게임 입장.");
                         _status = ScreenState.InGame;
 
+                        // 딜레이 자동 적용
+                        if (States.IsHostPlayer)
+                        {
+                            int delay = GetDelayNumericUpDownValue();
+                            SetGameDelay(delay);
+                        }
                         AutoRGAction.CancelAsync();
                         CheckMemberAction.CancelAsync();
                     }
@@ -549,6 +562,18 @@ namespace OpenCirnix.Lite
             }
         }
 
+        private int GetDelayNumericUpDownValue()
+        {
+            if (numericUpDown_delay.InvokeRequired)
+            {
+                return (int) Invoke(new Func<int>(() => GetDelayNumericUpDownValue()));
+            }
+            else
+            {
+                return (int) numericUpDown_delay.Value;
+            }
+        }
+
         private void SetGameDelay(int delay)
         {
             if (ActionHandler.SetGameDelay(delay))
@@ -589,7 +614,7 @@ namespace OpenCirnix.Lite
             WriteLog("[ 메모리 정리 ] 시작.");
         }
 
-        private void CheckBanList()
+        private async void CheckBanList()
         {
             var users = ActionHandler.GetUsers();
             var banedUsers = UserListAction.BanedUsers.ToList();
@@ -601,6 +626,7 @@ namespace OpenCirnix.Lite
                 {
                     foundCount++;
                     ChatAction.SendMsg(true, $"[ 발견 ] {baned.Name} ({baned.Ip}) : {baned.Reason}");
+                    await Task.Delay(300);
                 }
             }
 

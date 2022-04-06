@@ -76,7 +76,7 @@ namespace OpenCirnix.Lite
             }
         }
 
-        private void LoadCurrentUsers(bool isShowMsg)
+        private async void LoadCurrentUsers(bool isShowMsg)
         {
             listView_current.Items.Clear();
 
@@ -108,6 +108,7 @@ namespace OpenCirnix.Lite
                 foreach (var user in findBanedUsers)
                 {
                     ChatAction.SendMsg(true, $"[ 발견 ] {user.Name} ({user.Ip}) : {user.Reason}");
+                    await Task.Delay(300);
                 }
             }
         }
