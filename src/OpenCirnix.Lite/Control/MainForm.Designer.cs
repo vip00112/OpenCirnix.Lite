@@ -123,6 +123,11 @@ namespace OpenCirnix.Lite
             0,
             0,
             0});
+            this.numericUpDown_delay.Minimum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.numericUpDown_delay.Name = "numericUpDown_delay";
             this.numericUpDown_delay.Size = new System.Drawing.Size(100, 21);
             this.numericUpDown_delay.TabIndex = 4;
@@ -224,7 +229,7 @@ namespace OpenCirnix.Lite
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 12);
             this.label5.TabIndex = 4;
-            this.label5.Text = "= !dr 0 ~ 550";
+            this.label5.Text = "= !dr 5 ~ 550";
             // 
             // label6
             // 

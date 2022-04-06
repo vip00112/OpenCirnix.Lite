@@ -12,9 +12,9 @@ namespace OpenCirnix.Lite
     {
         public static bool SetGameDelay(int delay)
         {
-            if (delay < 0 || delay > 550)
+            if (delay < 5 || delay > 550)
             {
-                ChatAction.SendMsg(true, "[Error] !dr 0 ~ 500.");
+                ChatAction.SendMsg(true, "[Error] !dr 5 ~ 550.");
                 return false;
             }
 
