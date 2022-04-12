@@ -46,6 +46,17 @@ namespace OpenCirnix.Lite
             ShowRegisterDialog(null);
         }
 
+        private void menuItem_check_Click(object sender, EventArgs e)
+        {
+            if (listView_current.SelectedItems.Count == 0) return;
+
+            var item = listView_current.SelectedItems[0];
+            var user = item.Tag as User;
+            if (user == null) return;
+
+            ActionHandler.CheckBanListTargetUser(user.Name);
+        }
+
         private void ShowRegisterDialog(User user)
         {
             using (var dialog = new BanListRegisterDialog())
