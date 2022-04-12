@@ -19,14 +19,22 @@ namespace OpenCirnix.Lite
 
         public bool IsMatch(string findName, string findIp)
         {
-            if (string.IsNullOrWhiteSpace(Name) || string.IsNullOrWhiteSpace(findName)) return false;
-            if (Name.ToLower() == findName.ToLower()) return true;
+            return IsMatchName(findName) || IsMatchIp(findIp);
+        }
 
+        private bool IsMatchName(string findName)
+        {
+            if (string.IsNullOrWhiteSpace(Name) || string.IsNullOrWhiteSpace(findName)) return false;
+
+            return Name.ToLower() == findName.ToLower();
+        }
+
+        private bool IsMatchIp(string findIp)
+        {
             if (string.IsNullOrWhiteSpace(Ip) || string.IsNullOrWhiteSpace(findIp)) return false;
             if (Ip == AnyIp || findIp == AnyIp) return false;
-            if (Ip.Contains(findIp)) return true;
 
-            return false;
+            return Ip.Contains(findIp);
         }
     }
 }

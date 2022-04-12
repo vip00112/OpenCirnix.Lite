@@ -543,7 +543,12 @@ namespace OpenCirnix.Lite
             }
             else if (command == "wa" || command == "ㅈㅁ")
             {
-                CheckBanList();
+                string targetName = null;
+                if (args.Length >= 2)
+                {
+                    targetName = args[1].ToString();
+                }
+                CheckBanList(targetName);
             }
             States.UserState = CommandTag.None;
         }
@@ -614,23 +619,21 @@ namespace OpenCirnix.Lite
             WriteLog("[ 메모리 정리 ] 시작.");
         }
 
-        private async void CheckBanList()
+        private void CheckBanList(string targetName)
         {
-            var users = ActionHandler.GetUsers();
-            var banedUsers = UserListAction.BanedUsers.ToList();
-            int foundCount = 0;
-            foreach (var user in users)
+            // 특정 유저 조사
+            if (!string.IsNullOrWhiteSpace(targetName))
             {
-                var baned = banedUsers.FirstOrDefault(o => o.IsMatch(user.Name, user.Ip));
-                if (baned != null)
-                {
-                    foundCount++;
-                    ChatAction.SendMsg(true, $"[ 발견 ] {baned.Name} ({baned.Ip}) : {baned.Reason}");
-                    await Task.Delay(300);
-                }
+                ActionHandler.CheckBanListTargetUser(targetName);
+                WriteLog($"[ 밴리스트 ] '{targetName}' 조사 시작.");
             }
 
-            ChatAction.SendMsg(true, $"[ 밴리스트 ] {users.Count}명 중 {foundCount}명 검거 완료.");
+            // 전체 조사
+            else
+            {
+                ActionHandler.CheckBanListAllUser();
+                WriteLog("[ 밴리스트 ] 모든 유저 조사 시작.");
+            }
         }
 
         private void SelectPath()

@@ -115,6 +115,49 @@ namespace OpenCirnix.Lite
             }
         }
 
+        public static async void CheckBanListTargetUser(string targetName)
+        {
+            var users = GetUsers();
+            var banedUsers = UserListAction.BanedUsers.ToList();
+
+            var targetUser = users.FirstOrDefault(o => o.IsMatch(targetName, null));
+            string ip = (targetUser != null) ? targetUser.Ip : User.AnyIp;
+
+            var baned = banedUsers.FirstOrDefault(o => o.IsMatch(targetName, ip));
+            if (baned != null)
+            {
+                ChatAction.SendMsg(true, $"[ 발견 ] {targetName} ({ip})");
+                ChatAction.SendMsg(true, $"=> {baned.Name} ({baned.Ip}) : {baned.Reason}");
+                await Task.Delay(300);
+                ChatAction.SendMsg(true, $"[ 밴리스트 ] '{targetName}' 검거 완료.");
+            }
+            else
+            {
+                ChatAction.SendMsg(true, $"[ 밴리스트 ] '{targetName}' 님은 모범 유저입니다.");
+            }
+        }
+
+        public static async void CheckBanListAllUser()
+        {
+            var users = GetUsers();
+            var banedUsers = UserListAction.BanedUsers.ToList();
+
+            int foundCount = 0;
+            foreach (var user in users)
+            {
+                var baned = banedUsers.FirstOrDefault(o => o.IsMatch(user.Name, user.Ip));
+                if (baned != null)
+                {
+                    foundCount++;
+                    ChatAction.SendMsg(true, $"[ 발견 ] {user.Name} ({user.Ip})");
+                    ChatAction.SendMsg(true, $"=> {baned.Name} ({baned.Ip}) : {baned.Reason}");
+                    await Task.Delay(300);
+                }
+            }
+
+            ChatAction.SendMsg(true, $"[ 밴리스트 ] {users.Count}명 중 {foundCount}명 검거 완료.");
+        }
+
         private static string ConvertSize(double size)
         {
             bool reversed = false;

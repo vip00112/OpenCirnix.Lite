@@ -29,6 +29,7 @@ namespace OpenCirnix.Lite
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.listView_current = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -41,6 +42,9 @@ namespace OpenCirnix.Lite
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuItem_check = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // listView_current
@@ -49,6 +53,7 @@ namespace OpenCirnix.Lite
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
+            this.listView_current.ContextMenuStrip = this.contextMenuStrip;
             this.listView_current.FullRowSelect = true;
             this.listView_current.GridLines = true;
             this.listView_current.HideSelection = false;
@@ -149,6 +154,20 @@ namespace OpenCirnix.Lite
             this.label2.Text = "밴리스트 등록된 유저 목록 (더블클릭 시 편집창 열림)";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItem_check});
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(181, 48);
+            // 
+            // menuItem_check
+            // 
+            this.menuItem_check.Name = "menuItem_check";
+            this.menuItem_check.Size = new System.Drawing.Size(180, 22);
+            this.menuItem_check.Text = "조사";
+            this.menuItem_check.Click += new System.EventHandler(this.menuItem_check_Click);
+            // 
             // BanListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -166,6 +185,7 @@ namespace OpenCirnix.Lite
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "밴리스트";
             this.Load += new System.EventHandler(this.BanListForm_Load);
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -184,5 +204,7 @@ namespace OpenCirnix.Lite
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem menuItem_check;
     }
 }
